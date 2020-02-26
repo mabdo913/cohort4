@@ -28,7 +28,20 @@ const functions = {
 // return array length
     arrLength: (arr) => {
         return arr.length;
-    }
+    },
+
+// return true if object has property prop    
+    hasProperty: (obj,prop) => {
+        return obj.hasOwnProperty(prop);
+    },
+
+ // returns string based on password length
+    checkPassLength: (password,length) => {
+        if (password.length<length)
+            return "Password must be ${length} characters or more";
+        else
+            return "Your password has met the condition";    
+    }   
 };
 
 export default functions;
