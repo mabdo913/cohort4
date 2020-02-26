@@ -18,6 +18,16 @@ const functions = {
 // returns true if num is 'Hello World'
     isHelloWorld: (str) => {
         return str == 'Hello World';
+    },
+
+// returns true if bool is true
+    isTrue: (bool) => {
+        return bool==1;
+    },
+
+// return array length
+    arrLength: (arr) => {
+        return arr.length;
     }
 };
 
