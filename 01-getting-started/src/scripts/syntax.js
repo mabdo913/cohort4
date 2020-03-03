@@ -85,9 +85,15 @@ update values
     addToBack: (array,val) => {
         array.push(val);
         return array; 
-        }
-};
+        },
 
+// update values of array
+    updateArray: (arr,index,val) => {
+        arr[index] = val;
+        return arr;
+    }
+};
+// loops
 
 
 export default functions;
