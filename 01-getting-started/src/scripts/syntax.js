@@ -25,37 +25,74 @@ const functions = {
         return bool==1;
     },
 
-// return array length
+// returns array length as number
     arrLength: (arr) => {
         return arr.length;
     },
 
-// return true if object has property prop    
+// returns true if object has property prop    
     hasProperty: (obj,prop) => {
         return obj.hasOwnProperty(prop);
     },
 
- // returns string based on password length
+// returns string based on whether passed value is undefined
+    isUndefined: (val) => {
+        let str = '';
+        val===undefined ? str = "Value is undefined" : str = "Value is not undefined"
+        return str;
+    },
+/*
+** sample if / else **
+------------------------------------
+*/
+// returns string based on password length
     checkPassLength: (password,length) => {
         if (password.length<length)
             return "Password must be ${length} characters or more";
         else
             return "Your password has met the condition";    
-    }   
-};
-
-export default functions;
+    },
 /*
-** sample if / else **
-------------------------------------
 ** functions **
 ------------------------------------
-parameters
-returns
+* parameters *
+*/
+// returns true if parameter is zero
+    isZero: (num) => {
+        return num==0;
+    },
+    /*
+* returns *
+*/
+// returns the number squared
+    powerOfTwo: (num) => {
+        return num*num;
+    },
+
+/*
 arrays
 add to the front
 add to the end
 update values
+*/
+// adds value to the front of array
+    addToFront: (array,val) => {
+        array.unshift(val);
+        return array; 
+    },
+
+// adds value to end of array
+    addToBack: (array,val) => {
+        array.push(val);
+        return array; 
+        }
+};
+
+
+
+export default functions;
+/*
+
 loops 
 for
 for/in
