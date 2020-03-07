@@ -96,6 +96,65 @@
         <p id="idNumberSizexx"></p>
     </div>
 
+     <!-- ---------- Third Parallax Image with Calculator------------------ -->
+
+    <div class="bgimg-2 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide">CALCULATOR</span>
+        </div>
+    </div>
+    <div class=center>
+        <table style=width:25%>
+            <tr>    
+              <th colspan="4">
+                <input type="text" id="input" readonly>
+              </th>
+            </tr>
+            <tr>
+              <td><button onclick="input.value+=7" class="w3-button w3-circle w3-black w3-large" value="7">7</button></td>
+              <td><button onclick="input.value+=8" class="w3-button w3-circle w3-black w3-large" value="8">8</button></td>
+              <td><button onclick="input.value+=9" class="w3-button w3-circle w3-black w3-large" value="9">9</button></td>
+              <td><button class="w3-button w3-circle w3-teal w3-large">/</button></td>
+            </tr>
+            <tr>
+              <td><button onclick="input.value+=4" class="w3-button w3-circle w3-black w3-large" value="4">4</button></td>
+              <td><button onclick="input.value+=5" class="w3-button w3-circle w3-black w3-large" value="5">5</button></td>
+              <td><button onclick="input.value+=6" class="w3-button w3-circle w3-black w3-large" value="6">6</button></td>
+              <td><button onclick="input.value += ' + '" class="w3-button w3-circle w3-teal w3-large" value='+'>+</button></td>
+            </tr>
+            <tr>
+              <td><button onclick="input.value+=1" class="w3-button w3-circle w3-black w3-large" value="1">1</button></td>
+              <td><button onclick="input.value+=2" class="w3-button w3-circle w3-black w3-large" value="2">2</button></td>
+              <td><button onclick="input.value+=3" class="w3-button w3-circle w3-black w3-large" value="3">3</button></td>
+              <td><button onclick="input.value += ' - '" class="w3-button w3-circle w3-teal w3-large" value='-'>-</button></td>
+            </tr>
+            <tr>
+              <td><button onclick="input.value=''" class="w3-button w3-circle w3-red w3-large" value=''>C</button></td>
+              <td><button class="w3-button w3-circle w3-black w3-large">0</button></td>
+              <td><button class="w3-button w3-circle w3-red w3-large">=</button></td>
+              <td><button onclick="input.value += ' X '" class="w3-button w3-circle w3-teal w3-large" value='X'>X</button></td>
+            </tr>
+          </table>
+    </div>
+
+     <!-- ---------- Fourth Parallax Image with Tax Calculator------------------ -->
+
+     <div class="bgimg-2 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide">TAX CALCULATOR</span>
+        </div>
+    </div>
+
+    <div class="center">
+        <h3>Calculate your taxes</h3>
+        <div><label><b>Enter your income:</b></label>  
+            <input id="income">
+        </div>
+        
+        <button id="calcButton">Calculate</button><br><br>
+        <b>Taxes owed:<b></b><span id="result"></span>
+    </div>
+
     <!-- Footer -->
     <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
         <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
