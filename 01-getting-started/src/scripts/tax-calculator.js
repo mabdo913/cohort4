@@ -10,9 +10,9 @@ const firstIncomeBase = 0.00, secondIncomeBase = 48535.00, thirdIncomeBase = 970
 const firstRate = 0.15, secondRate = 0.205, thirdRate = 0.26, fourthRate = 0.29, fifthRate = 0.33;
 
 // calculate tax amount for each bracket
-const secondBracketTaxes = secondIncomeBase * firstRate, thirdBracketTaxes = (thirdIncomeBase - secondIncomeBase) * secondRate + secondBracketTaxes,
-	fourthBracketTaxes = (fourthIncomeBase - thirdIncomeBase) * thirdRate + thirdBracketTaxes,
-	fifthTaxBracket = (fifthIncomeBase - fourthIncomeBase) * fourthRate + fourthBracketTaxes;
+const firstBracketTaxes = secondIncomeBase * firstRate, secondBracketTaxes = (thirdIncomeBase - secondIncomeBase) * secondRate + firstBracketTaxes,
+	thirdBracketTaxes = (fourthIncomeBase - thirdIncomeBase) * thirdRate + secondBracketTaxes,
+	fourthTaxBracket = (fifthIncomeBase - fourthIncomeBase) * fourthRate + thirdBracketTaxes;
 
 const calculatorFunctions = {
 
@@ -24,16 +24,16 @@ const calculatorFunctions = {
           	taxesOwed = ((income - firstIncomeBase) * firstRate);
         }          
       if (income > secondIncomeBase && income <= thirdIncomeBase) {        
-          	taxesOwed = ((income - secondIncomeBase) * secondRate) + secondBracketTaxes;
+          	taxesOwed = ((income - secondIncomeBase) * secondRate) + firstBracketTaxes;
           }          
       if (income > thirdIncomeBase && income <= fourthIncomeBase) {          
-          	taxesOwed = (income - thirdIncomeBase) * thirdRate + thirdBracketTaxes;
+          	taxesOwed = (income - thirdIncomeBase) * thirdRate + secondBracketTaxes;
           }          
       if (income > fourthIncomeBase && income <= fifthIncomeBase) {    
-          	taxesOwed = ((income - fourthIncomeBase) * fourthRate) + fourthBracketTaxes;
+          	taxesOwed = ((income - fourthIncomeBase) * fourthRate) + thirdBracketTaxes;
           }          
       if (income > fifthIncomeBase) {
-        	taxesOwed = ((income - fifthIncomeBase) * fifthRate) + fifthTaxBracket;
+        	taxesOwed = ((income - fifthIncomeBase) * fifthRate) + fourthTaxBracket;
          } 
           
       return taxesOwed.toFixed(2);
