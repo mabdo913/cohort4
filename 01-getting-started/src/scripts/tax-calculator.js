@@ -3,43 +3,37 @@ All number based on Canada Revenue website
 Link : https://tinyurl.com/y9qwu69v 
 
 Constants
-Tax brackets. Used to determine tax rate and taxable income 
-i.e if your income is above $48535, then you are in the second tier */
-const firstTierBase = 0.00;
-const secondTierBase = 48535.00;
-const thirdTierBase = 97069.00;
-const fourthTierBase = 150473.00;
-const fifthTierBase= 214368.00;
+Gross income base amounts. Used to determine tax brackets, tax rates, and taxes owed for each bracket */
+const firstIncomeBase = 0.00, secondIncomeBase = 48535.00, thirdIncomeBase = 97069.00, fourthIncomeBase = 150473.00, fifthIncomeBase= 214368.00;
 
 // tax rates for each bracket
-const firstTierRate = 0.15;
-const secondTierRate = 0.205;
-const thirdTierRate = 0.26;
-const fourthTierRate = 0.29;
-const fifthTierRate = 0.33;
+const firstRate = 0.15, secondRate = 0.205, thirdRate = 0.26, fourthRate = 0.29, fifthRate = 0.33;
+
+// calculate tax amount for each bracket
+const secondBracketTaxes = secondIncomeBase * firstRate, thirdBracketTaxes = (thirdIncomeBase - secondIncomeBase) * secondRate + secondBracketTaxes,
+	fourthBracketTaxes = (fourthIncomeBase - thirdIncomeBase) * thirdRate + thirdBracketTaxes,
+	fifthTaxBracket = (fifthIncomeBase - fourthIncomeBase) * fourthRate + fourthBracketTaxes;
 
 const calculatorFunctions = {
 
-    /* calculate() function. accepts and evaluates user income. calculates income tax
-    // deduct base amount from income and multiply by appropriate tax, then add tax amounts from
-    // lower teirs */
+// calculate() function. accepts user income as parameter. calculates income tax based on income, tax rate, and taxes calculated on each tax bracket
     calculate: income => {
       
       let taxesOwed = 0.0000;          
-      if (income <= secondTierBase) {        
-          taxesOwed = ((income - firstTierBase) * firstTierRate) + (firstTierBase * firstTierRate);
+      if (income <= secondIncomeBase) {        
+          	taxesOwed = ((income - firstIncomeBase) * firstRate);
         }          
-      if (income > secondTierBase && income <= thirdTierBase) {        
-          taxesOwed = ((income - secondTierBase) * secondTierRate) + (secondTierBase * firstTierRate);
+      if (income > secondIncomeBase && income <= thirdIncomeBase) {        
+          	taxesOwed = ((income - secondIncomeBase) * secondRate) + secondBracketTaxes;
           }          
-      if (income > thirdTierBase && income <= fourthTierBase) {          
-          taxesOwed = (income - thirdTierBase) * thirdTierRate + secondTierBase * firstTierRate + (thirdTierBase - secondTierBase) * secondTierRate;
+      if (income > thirdIncomeBase && income <= fourthIncomeBase) {          
+          	taxesOwed = (income - thirdIncomeBase) * thirdRate + thirdBracketTaxes;
           }          
-      if (income > fourthTierBase && income <= fifthTierBase) {    
-          taxesOwed = ((income - fourthTierBase) * fourthTierRate) + (secondTierBase * firstTierRate) + (thirdTierBase - secondTierBase) * secondTierRate + (fourthTierBase - thirdTierBase) * thirdTierRate;
+      if (income > fourthIncomeBase && income <= fifthIncomeBase) {    
+          	taxesOwed = ((income - fourthIncomeBase) * fourthRate) + fourthBracketTaxes;
           }          
-      if (income > fifthTierBase) {
-        taxesOwed = ((income - fifthTierBase) * fifthTierRate) + (secondTierBase * firstTierRate) + (thirdTierBase - secondTierBase) * secondTierRate + (fourthTierBase - thirdTierBase) * thirdTierRate + (fifthTierBase - fourthTierBase) * fourthTierRate;
+      if (income > fifthIncomeBase) {
+        	taxesOwed = ((income - fifthIncomeBase) * fifthRate) + fifthTaxBracket;
          } 
           
       return taxesOwed.toFixed(2);
