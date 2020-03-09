@@ -14,7 +14,7 @@ const firstBracketTaxes = secondIncomeBase * firstRate, secondBracketTaxes = (th
 	thirdBracketTaxes = (fourthIncomeBase - thirdIncomeBase) * thirdRate + secondBracketTaxes,
 	fourthTaxBracket = (fifthIncomeBase - fourthIncomeBase) * fourthRate + thirdBracketTaxes;
 
-const calculatorFunctions = {
+const taxCalculatorFunctions = {
 
 // calculate() function. accepts user income as parameter. calculates income tax based on income, tax rate, and taxes calculated on each tax bracket
     calculate: income => {
@@ -42,4 +42,4 @@ const calculatorFunctions = {
     
 }
 
-export default calculatorFunctions;
+export default taxCalculatorFunctions;
