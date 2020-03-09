@@ -41,15 +41,31 @@ let numberArray = [];
 let arrInput = document.getElementById("arrayInput");
 let message = document.getElementById("message");  
 
+// add input value to array if it is a number
 arrayAddButton.addEventListener('click', (() => {
-
-    arrayFunctions.addNumToArray(numberArray,arrInput.value);
-    message.textContent = "Number successfully added to array";
+    if (isNaN(arrInput.value)) {
+        message.textContent = "Not a number. Cannot add to array";
+    }
+    else {
+        arrayFunctions.addNumToArray(numberArray,arrInput.value);
+        message.textContent = "Number " + arrInput.value + " was successfully added to array";
+    }          
 }));
 
+// display contents of array in string form
 showButton.addEventListener('click', (() => {
-    /* let arrInput = document.getElementById("arrayInput");
-    let message = document.getElementById("message");   */
-    
     message.textContent = arrayFunctions.show(numberArray);
+}));
+
+//sum up all values of array and display
+totalButton.addEventListener('click', (() => {    
+    let sum = arrayFunctions.arraySum(numberArray);
+    message.textContent = sum;
+
+}));
+
+//clear array. update message div
+clearButton.addEventListener('click', (() => {
+    numberArray = arrayFunctions.clear(numberArray);
+    message.textContent = numberArray;
 }));

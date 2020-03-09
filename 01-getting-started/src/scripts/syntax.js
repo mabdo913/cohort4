@@ -91,17 +91,42 @@ update values
     updateArray: (arr,index,val) => {
         arr[index] = val;
         return arr;
-    }
-};
-// loops
+    },
+    
+//loops
+// for loop
+// takes array as parameter. adds numbers 1-5 to array. returns array
+    addNumsToArray: arr => {
+        for (let i=0; i<=5;i++){
+            arr.push(i);
+        }            
+     return arr;   
+    },
 
+// forin loop   
+//returns true if array contains value lessa than zero
+    hasNegativeNums: arr => {        
+        let bool=false;
+        for (var num in arr){
+            if (num>0) {
+                bool = true;
+                break;
+            }            
+        }            
+     return bool;
+    },
+
+//forEach (with array and function)
+//
+
+};
+
+    
 
 export default functions;
 /*
 
-loops 
-for
-for/in
+
 while
 do while
 forEach (with array and function)

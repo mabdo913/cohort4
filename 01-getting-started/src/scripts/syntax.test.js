@@ -1,5 +1,7 @@
 import functions from './syntax' 
 
+// testing functions in sytax.js
+
 test('Check if number is odd', () => {
     expect(functions.isOdd(1)).toBe(true); 
     expect(functions.isOdd(0)).toBe(false);
@@ -54,5 +56,15 @@ test('Does the addToFront() function work?', () => {
 
 test('Does the addToBack() function work?', () => {
     expect(functions.addToBack([32,90,0],'foo')).toStrictEqual([32,90,0,'foo']);
-    //expect(functions.addToBack([32,90,0],90)).toStrictEqual([90,32,90,0]);
+    expect(functions.addToBack([9,41,76,0,19],12)).toStrictEqual([9,41,76,0,19,12]);
+});
+
+test('Does the addNumsToArray() function work?', () => {    
+    expect(functions.addNumsToArray([2])).toStrictEqual([2,0,1,2,3,4,5]);
+    expect(functions.addNumsToArray([3,95,21,21,11,62])).toStrictEqual([3,95,21,21,11,62,0,1,2,3,4,5]);
+});
+
+test('Does the hasNegativeNums() function work?', () => {    
+    expect(functions.hasNegativeNums([3,95,21,21,11,62,0,1,2,3,4,5])).toBe(false);
+    expect(functions.hasNegativeNums([2,6,3,7,4,8,-10,1,8,4,3,0])).toBe(true);
 });

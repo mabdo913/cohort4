@@ -13,7 +13,8 @@ test('Testing show() function', () => {
 test('Testing arraySum() function', () => {
     expect(functions.arraySum([54,5,6,15])).toBe(80); 
     expect(functions.arraySum([9,4,3,6,8])).toBe(30);
-    
+    expect(functions.arraySum(['9','4','3','6','8'])).toBe(30);
+    expect(functions.arraySum([])).toBe(0);
 });
 
 test('Testing clear() function', () => {
