@@ -12,8 +12,9 @@ idNumber.addEventListener('change', (() => {
     idNumberSize.textContent = functions.size(idNumber.value);
 }));
 
-
+//------------------------
 // CALCULATOR
+//------------------------
 let isOperatorclicked = false;
 let num1,num2 = 0;
 
@@ -26,8 +27,9 @@ addButton.addEventListener('click', (() => {
     alert(num1+num2+isOperatorclicked)
 }));
 
-
+//-----------------------
 // TAX CALCULATOR
+//-----------------------
 // event listener for calculate button in tax calculator
 calcButton.addEventListener('click', (() => {
     let income = document.getElementById("income");
@@ -35,7 +37,9 @@ calcButton.addEventListener('click', (() => {
     result.textContent = " $ " + taxCalculatorFunctions.calculate(income.value);
 }));
 
+//------------------------
 // ARRAYS
+//------------------------
 // event listener for add button in arrays section
 let numberArray = [];
 let arrInput = document.getElementById("arrayInput");
@@ -48,7 +52,7 @@ arrayAddButton.addEventListener('click', (() => {
     }
     else {
         arrayFunctions.addNumToArray(numberArray,arrInput.value);
-        message.textContent = "Number " + arrInput.value + " was successfully added to array";
+        message.textContent = arrInput.value + " was successfully added to array";
     }          
 }));
 
@@ -57,7 +61,7 @@ showButton.addEventListener('click', (() => {
     message.textContent = arrayFunctions.show(numberArray);
 }));
 
-//sum up all values of array and display
+// add listener for total button. sum up all values of array and display
 totalButton.addEventListener('click', (() => {    
     let sum = arrayFunctions.arraySum(numberArray);
     message.textContent = sum;
@@ -68,4 +72,36 @@ totalButton.addEventListener('click', (() => {
 clearButton.addEventListener('click', (() => {
     numberArray = arrayFunctions.clear(numberArray);
     message.textContent = numberArray;
+}));
+
+//-------------
+// DICTIONARIES
+//-------------
+// define province dictionary
+let provinces = {
+    ab: "Alberta",
+    bc: "British Columbia",
+    mb: "Manitoba",
+    nb: "New Brunswick",
+    ns: "Nova Scotia",
+    nwt: "Northwest Territories",
+    nfl: "Newfoundland",
+    nv: "Nunavut",
+    ont: "Ontario",
+    pei: "Prince Edward Island",
+    qb: "Quebec",
+    sk: "Saskatchewan",
+    yk: "Yukon"
+};
+
+// set variables for input field and button
+let provinceInput = document.getElementById("dictInput");
+let messageArea = document.getElementById("province"); 
+
+// add listener for lookup button
+lookup.addEventListener('click', (() => {  
+    if (provinces.hasOwnProperty(provinceInput.value))  
+        messageArea.textContent = provinces[provinceInput.value];
+    else
+        messageArea.textContent = "Error. This is not a province";
 }));
