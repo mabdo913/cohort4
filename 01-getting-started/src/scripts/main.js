@@ -3,33 +3,48 @@ import taxCalculatorFunctions from './tax-calculator.js';
 import calculatorFunctions from './calculator.js';
 import arrayFunctions from './arrays.js';
 
-// **********
+// ******************************************************************
 //
 // Add the event listeners
-// 
+//
+// ******************************************************************
 
 idNumber.addEventListener('change', (() => {
     idNumberSize.textContent = functions.size(idNumber.value);
 }));
 
-//------------------------
+//-------------------------------------------------------------------
 // CALCULATOR
-//------------------------
-let isOperatorclicked = false;
+//-------------------------------------------------------------------
+let operatorClicked = '';
+let operatorClickedCounter = 0;
 let num1,num2 = 0;
 
 addButton.addEventListener('click', (() => {
-    if (!isOperatorclicked)
-        num1 = input.value;
-    else
-        num2 = input.value;
-    isOperatorclicked=true;
-    alert(num1+num2+isOperatorclicked)
+    operatorClicked    
 }));
 
-//-----------------------
+subtractButton.addEventListener('click', (() => {
+    
+}));
+
+multiplyButton.addEventListener('click', (() => {
+    
+}));
+
+divideButton.addEventListener('click', (() => {
+    
+}));
+
+divideButton.addEventListener('click', (() => {
+    
+}));
+
+idSevenButton
+
+//---------------------------------------------------------------------
 // TAX CALCULATOR
-//-----------------------
+//---------------------------------------------------------------------
 // event listener for calculate button in tax calculator
 calcButton.addEventListener('click', (() => {
     let income = document.getElementById("income");
@@ -37,9 +52,9 @@ calcButton.addEventListener('click', (() => {
     result.textContent = " $ " + taxCalculatorFunctions.calculate(income.value);
 }));
 
-//------------------------
+//--------------------------------------------------------------------
 // ARRAYS
-//------------------------
+//---------------------------------------------------------------------
 // event listener for add button in arrays section
 let numberArray = [];
 let arrInput = document.getElementById("arrayInput");
@@ -74,9 +89,9 @@ clearButton.addEventListener('click', (() => {
     message.textContent = numberArray;
 }));
 
-//-------------
+//---------------------------------------------------------------------
 // DICTIONARIES
-//-------------
+//---------------------------------------------------------------------
 // define province dictionary
 let provinces = {
     ab: "Alberta",
