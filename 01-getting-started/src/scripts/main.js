@@ -16,31 +16,57 @@ idNumber.addEventListener('change', (() => {
 //-------------------------------------------------------------------
 // CALCULATOR
 //-------------------------------------------------------------------
-let operatorClicked = '';
-let operatorClickedCounter = 0;
+let operator = "";
 let num1,num2 = 0;
 
 addButton.addEventListener('click', (() => {
-    operatorClicked    
+    operator = "add";    
+    num1 = parseInt(input.value);    
+    input.value = ''; 
 }));
 
 subtractButton.addEventListener('click', (() => {
-    
+    operator = "subtract";
+    num1 = parseInt(input.value);
+    input.value = ''; 
 }));
 
 multiplyButton.addEventListener('click', (() => {
-    
+    operator = "multiply";
+    num1 = parseInt(input.value);
+    input.value = ''; 
 }));
 
 divideButton.addEventListener('click', (() => {
-    
+    operator = "divide";
+    num1 = parseInt(input.value);
+    input.value = '';    
 }));
 
-divideButton.addEventListener('click', (() => {
-    
+idClearButton.addEventListener('click', (() => {
+    operator = "";
+    num1,num2 = 0;
+    input.value = '';
 }));
 
-idSevenButton
+equalsButton.addEventListener('click', (() => {
+    num2 = parseInt(input.value);;
+    console.log(num1,num2,operator);
+
+    switch (operator) {
+        case "add":            
+            input.value = calculatorFunctions.addNumbers(num1,num2); 
+            console.log(num1, num2, operator, input.value, input.textContent);           
+        case "subtract":            
+            input.value = calculatorFunctions.subtractNumbers(num1,num2);
+        case "multiply":            
+            input.value = calculatorFunctions.multiplyNumbers(num1,num2);
+        case "divide":
+            input.value = calculatorFunctions.divideNumbers(num1,num2);        
+         
+    }    
+}));
+
 
 //---------------------------------------------------------------------
 // TAX CALCULATOR
@@ -84,7 +110,7 @@ totalButton.addEventListener('click', (() => {
 }));
 
 //clear array. update message div
-clearButton.addEventListener('click', (() => {
+idClearButton.addEventListener('click', (() => {
     numberArray = arrayFunctions.clear(numberArray);
     message.textContent = numberArray;
 }));

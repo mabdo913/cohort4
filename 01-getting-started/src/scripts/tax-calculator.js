@@ -19,7 +19,7 @@ const taxCalculatorFunctions = {
 // calculate() function. accepts user income as parameter. calculates income tax based on income, tax rate, and taxes calculated on each tax bracket
     calculate: income => {
       
-      let taxesOwed = 0.0000;          
+      let taxesOwed = 0.00;          
       if (income <= secondIncomeBase) {        
           	taxesOwed = ((income - firstIncomeBase) * firstRate);
         }          

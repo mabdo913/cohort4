@@ -4,7 +4,7 @@ const calculatorFunctions = {
     addNumbers: (num1,num2) => {      
         return parseInt(num1)+parseInt(num2);
     },
-    // subtract two given
+    // subtract two given numbers
     subtractNumbers: (num1,num2) => {
         return parseInt(num1-num2);
     },
