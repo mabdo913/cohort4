@@ -107,11 +107,11 @@ update values
 //returns true if array contains value lessa than zero
     hasNegativeNums: arr => {        
         let bool=false;
-        for (var num in arr){
-            if (num>0) {
+        for (let num of arr){                
+            if (num<0) {                
                 bool = true;
                 break;
-            }            
+                }            
         }            
      return bool;
     },

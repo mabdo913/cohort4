@@ -50,20 +50,21 @@ idClearButton.addEventListener('click', (() => {
 }));
 
 equalsButton.addEventListener('click', (() => {
-    num2 = parseInt(input.value);;
-    console.log(num1,num2,operator);
+    num2 = parseInt(input.value);    
 
     switch (operator) {
         case "add":            
-            input.value = calculatorFunctions.addNumbers(num1,num2); 
-            console.log(num1, num2, operator, input.value, input.textContent);           
+            input.value = calculatorFunctions.addNumbers(num1,num2);              
+            break;          
         case "subtract":            
             input.value = calculatorFunctions.subtractNumbers(num1,num2);
+            break;
         case "multiply":            
             input.value = calculatorFunctions.multiplyNumbers(num1,num2);
+            break;
         case "divide":
-            input.value = calculatorFunctions.divideNumbers(num1,num2);        
-         
+            input.value = calculatorFunctions.divideNumbers(num1,num2);  
+            break;         
     }    
 }));
 
