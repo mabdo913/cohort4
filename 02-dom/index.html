@@ -3,20 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DOM Manipulation and Working with Cards</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">  
 </head>
 <body>
     <div id="container" style="border:solid;">
         <h1>Basic DOM</h1>
         <p>This is a list of stuff</p>
-        <ol>
+        <ol id="itemList">
             <li>Item 1</li>
             <li>Item 2</li>
             <li>Item 3</li>
         </ol>
-        <button>Show</button>
-        <button>Add</button>
+        <button id="showButton">Show</button>
+        <button id="addButton">Add</button>
     </div>    
+    <h1>Working with Cards</h1>    
+
+    <div class="row">
+        <div class="column">
+            <div class="card">                 
+                <h4>Card 1</h4> 
+                <button>Add Before</button><button>Add After</button>
+                <button>Delete</button>                
+            </div>
+            <div class="card">                 
+                <h4>Card 2</h4> 
+                <button>Add Before</button><button>Add After</button>
+                <button>Delete</button>                
+            </div>
+            <div class="card">                 
+                <h4>Card 3</h4> 
+                <button>Add Before</button><button>Add After</button>
+                <button>Delete</button>                
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">                
+                <div class="container">
+                  <h4>Right Side 1</h4>                  
+                </div>
+              </div>
+              <div class="card">                
+                <div class="container">
+                  <h4>Right Side 2</h4>                  
+                </div>
+              </div>
+              <div class="card">                
+                <div class="container">
+                  <h4>Right Side 3</h4>                  
+                </div>
+              </div>
+        </div>
+    </div>
 <script type="module" src="./main.js"></script>
 </body>
 </html>
