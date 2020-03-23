@@ -19,8 +19,7 @@ document.body.addEventListener("click", e => {
          }
          if (buttonText == 'Add After') {
             const newCard = DOMFunctions.createCard(cardNum);            
-            parent.insertAdjacentElement('afterend',newCard);
-            
+            parent.insertAdjacentElement('afterend',newCard);            
          }      
    } 
 });

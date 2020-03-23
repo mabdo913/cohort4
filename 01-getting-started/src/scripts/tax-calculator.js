@@ -16,7 +16,7 @@ const firstBracketTaxes = secondIncomeBase * firstRate, secondBracketTaxes = (th
 
 const taxCalculatorFunctions = {
 
-// calculate() function. accepts user income as parameter. calculates income tax based on income, tax rate, and taxes calculated on each tax bracket
+// calculate() function. accepts income as parameter. calculates income tax based on income, tax rate, and taxes calculated on each tax bracket
     calculate: income => {
       
       let taxesOwed = 0.00;          
