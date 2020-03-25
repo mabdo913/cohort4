@@ -2,7 +2,7 @@
 
 const DOMFunctions = {
 
-    createListItem: (itemNum) => {     
+    createListItem: (itemNum) => {         
 
       const listItem = document.createElement("LI");       
       const textnode = document.createTextNode("Item " + itemNum); 

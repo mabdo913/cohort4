@@ -1,20 +1,23 @@
 {
-  "name": "cohort4",
-  "version": "1.0.0",
-  "description": "This file must be viewed from [github](https://github.com/larryevolveu/reference). Do not view from an editor.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mabdo913/cohort4.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mabdo913/cohort4/issues"
-  },
-  "homepage": "https://github.com/mabdo913/cohort4#readme"
+    "name": "jest-p2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "testcov": "jest --coverage",
+        "test1": "jest src/01-getting-started",
+        "test1cov": "jest src/01-getting-started --coverage",
+        "testfile": "jest src/01-getting-started/scripts/lfsplay.test.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/cli": "^7.0.0",
+        "@babel/preset-env": "^7.0.0",
+        "jest": "^24.9.0",
+        "node-fetch": "^2.6.0",
+        "whatwg-fetch": "^3.0.0"
+    }
 }

@@ -2,7 +2,7 @@ import DOMFunctions from './domfunc.js';
 
 addButton.addEventListener("click", () => {
    const ol = document.getElementById("itemList");
-   const li = DOMFunctions.createListItem(ol.childElementCount+1);
+   const li = DOMFunctions.createListItem(ol.childElementCount+1);   
    document.getElementById("itemList").appendChild(li);   
 });
 
