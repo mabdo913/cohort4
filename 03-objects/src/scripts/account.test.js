@@ -1,8 +1,4 @@
-import Account, {
-  account,
-  accountController,
-  AccountController
-} from "./account";
+import { Account, AccountController } from './account.js';
 
 const testAccount = new Account("My First Account", 50);
 const controller = new AccountController();
@@ -48,6 +44,7 @@ test("Check if newAccount function works", () => {
 
 test("Check if removeAccount function works", () => {
   const id = controller.accounts[2]["id"];  
+  console.log(id);
   controller.removeAccount(id);
 
   expect(controller.accounts.length).toBe(3);

@@ -1,4 +1,4 @@
-export default class Account {
+export class Account {
 
       constructor(accountName, initialBalance) {
         this.id = Math.floor(1000 + Math.random() * 9000);  
