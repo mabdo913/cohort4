@@ -9,13 +9,11 @@ addButton.addEventListener("click", () => {
 
 document.body.addEventListener("click", e => {
     if (e.target.nodeName == 'BUTTON' && e.target.textContent == 'Delete') {
-        console.log(e.target.parentNode.id);
         accounts.removeAccount(parseInt(e.target.parentNode.id));
         updateAccounts();
     }
 
     if (e.target.className == 'card') {
-        console.log(e.target.id);        
         updateAccountDetails(parseInt(e.target.id));
     }
 
@@ -36,8 +34,8 @@ const updateAccounts = () => {
 const updateAccountDetails = (id) => {
     let divHTML = '';
     const found = accounts.findAccount(id);
-   
-        divHTML = `<div id=${found['id']} class='card'>
+
+    divHTML = `<div id=${found['id']} class='card'>
                         <h2>Account Name: ${found['name']} Account</h4>
                         <h2>Account Number: ${found['id']}</h4>
                         <h2>Balance: $${found['balance']}</h4>
@@ -46,6 +44,6 @@ const updateAccountDetails = (id) => {
                         <input placeholder="Enter amount">
                         <button>Deposit</button>
                     </div>`;
-    
+
     document.querySelector("#account-details").innerHTML = divHTML;
 }
