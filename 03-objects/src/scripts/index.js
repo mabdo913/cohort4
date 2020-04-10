@@ -26,7 +26,7 @@ document.body.addEventListener("click", (e) => {
 
         accounts.updateBal(parseInt(id), 'withdraw', parseFloat(inputAmount.value));              
         updateAccountDetails(parseInt(id));
-        label.textContent = 'Withdrawl in the amount of $' + amt + ' was successful!';
+        label.textContent = 'A withdrawl in the amount of $' + amt + ' has been made';
     }
 
     if (e.target.nodeName == "BUTTON" && e.target.textContent == "Deposit") {
@@ -35,7 +35,7 @@ document.body.addEventListener("click", (e) => {
 
         accounts.updateBal(parseInt(id), 'deposit', amt);        
         updateAccountDetails(parseInt(id));        
-        label.textContent = 'Deposit in the amount of $' + amt + ' was successful!';
+        label.textContent = 'A deposit in the amount of $' + amt + ' has been made';
     }
 });
 
