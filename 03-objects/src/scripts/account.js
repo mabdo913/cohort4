@@ -6,8 +6,8 @@ export class Account {
         this.balance = initialBalance;
     }
 
-    deposit(amount) {
-        this.balance = this.balance + amount;        
+    deposit(amount) {        
+        this.balance = parseFloat(this.balance) + amount;         
     }
 
     withdraw(amount) {
@@ -44,7 +44,7 @@ export class AccountController {
     updateBal(id, action, amt) {
         const account = this.accounts.find(acc => acc.id === id);
 
-        if (action == 'deposit') {
+        if (action == 'deposit') {            
             account.deposit(amt)
         }
 

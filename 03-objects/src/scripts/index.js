@@ -14,22 +14,22 @@ document.body.addEventListener("click", (e) => {
         updateAccounts();
     }
 
-    if (e.target.className == "card") {
-        updateAccountDetails(parseInt(e.target.id));
+    if (e.target.nodeName == "BUTTON" && e.target.textContent == "Details") {        
+        updateAccountDetails(parseInt(e.target.parentNode.id));
     }
 });
 
 document.body.addEventListener("click", (e) => {
-    if (e.target.nodeName == "BUTTON" && e.target.textContent == "Withdraw") {        
+    if (e.target.nodeName == "BUTTON" && e.target.textContent == "Withdraw") {         
         accounts.updateBal(parseInt(e.target.id), 'withdraw', parseFloat(inputAmount.value));
-        const amt = parseFloat(inputAmount.value);
+        const amt = parseFloat(inputAmount.value);        
         updateAccountDetails(parseInt(e.target.id));
         label.textContent = 'Withdrawl in the amount of $' + amt + ' was successful!';
     }
 
     if (e.target.nodeName == "BUTTON" && e.target.textContent == "Deposit") {
-        accounts.updateBal(parseInt(e.target.id), 'deposit', parseFloat(inputAmount.value));
-        const amt = parseFloat(inputAmount.value);
+        const amt = parseFloat(inputAmount.value);        
+        accounts.updateBal(parseInt(e.target.id), 'deposit', amt);        
         updateAccountDetails(parseInt(e.target.id));        
         label.textContent = 'Deposit in the amount of $' + amt + ' was successful!';
     }
@@ -43,6 +43,7 @@ const updateAccounts = () => {
                         <h4>${account["name"]} Account</h4>
                         <h4>Acc # ${account["id"]}</h4>
                         <button>Delete</button>
+                        <button>Details</button>
                     </div>`;
     });
     document.querySelector("#accounts").innerHTML = divHTML;
@@ -55,11 +56,11 @@ const updateAccountDetails = (id) => {
     divHTML = `<div id=${current["id"]} class='card'>
                         <h2>Account Name: ${current["name"]}</h4>
                         <h2>Account Number: ${current["id"]}</h4>
-                        <h2>Balance: $${current["balance"]}</h4>
-                        <input id="inputAmount" placeholder="Enter amount">
+                        <h2>Balance: $${current["balance"]}</h4>                        
+                        <input id="inputAmount" type="text" placeholder="Enter amount" required>
                         <button id=${current["id"]}>Withdraw</button>                        
                         <button id=${current["id"]}>Deposit</button><br><br>
-                        <label id ="label">
+                        <label id ="label">                        
                     </div>`;
 
     document.querySelector("#account-details").innerHTML = divHTML;
