@@ -20,19 +20,18 @@ document.body.addEventListener("click", (e) => {
 });
 
 document.body.addEventListener("click", (e) => {
-    if (e.target.nodeName == "BUTTON" && e.target.textContent == "Withdraw") {
-        let amt = document.getElementById("inputAmount");
-        accounts.updateBal(parseInt(e.target.id), "withdraw", amt.textContent);
-        label.textContent = "Withdrawl in the amount of $" + amt.value + " was successful!";
-        updateAccounts();
+    if (e.target.nodeName == "BUTTON" && e.target.textContent == "Withdraw") {        
+        accounts.updateBal(parseInt(e.target.id), 'withdraw', parseFloat(inputAmount.value));
+        const amt = parseFloat(inputAmount.value);
+        updateAccountDetails(parseInt(e.target.id));
+        label.textContent = 'Withdrawl in the amount of $' + amt + ' was successful!';
     }
 
     if (e.target.nodeName == "BUTTON" && e.target.textContent == "Deposit") {
-        let amt = document.getElementById("inputAmount");
-        accounts.updateBal(parseInt(e.target.id), 'deposit', amt.textContent);
-        label.textContent =
-            "Deposit in the amount of $" + inputAmount.value + " was successful!";
-        updateAccounts();
+        accounts.updateBal(parseInt(e.target.id), 'deposit', parseFloat(inputAmount.value));
+        const amt = parseFloat(inputAmount.value);
+        updateAccountDetails(parseInt(e.target.id));        
+        label.textContent = 'Deposit in the amount of $' + amt + ' was successful!';
     }
 });
 
@@ -51,15 +50,15 @@ const updateAccounts = () => {
 
 const updateAccountDetails = (id) => {
     let divHTML = "";
-    const found = accounts.findAccount(id);
-
-    divHTML = `<div id=${found["id"]} class='card'>
-                        <h2>Account Name: ${found["name"]} Account</h4>
-                        <h2>Account Number: ${found["id"]}</h4>
-                        <h2>Balance: $${found["balance"]}</h4>
+    const current = accounts.findAccount(id);
+    
+    divHTML = `<div id=${current["id"]} class='card'>
+                        <h2>Account Name: ${current["name"]}</h4>
+                        <h2>Account Number: ${current["id"]}</h4>
+                        <h2>Balance: $${current["balance"]}</h4>
                         <input id="inputAmount" placeholder="Enter amount">
-                        <button id="btnWithdraw">Withdraw</button>                        
-                        <button id="btnDeposit">Deposit</button>
+                        <button id=${current["id"]}>Withdraw</button>                        
+                        <button id=${current["id"]}>Deposit</button><br><br>
                         <label id ="label">
                     </div>`;
 

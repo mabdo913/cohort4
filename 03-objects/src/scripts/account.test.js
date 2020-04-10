@@ -63,12 +63,9 @@ test("Check if findAccount function works", () => {
 });
 
 test("Check if updateBal function works", () => {
-  const id = controller.accounts[2]["id"];
-
+  const id = controller.accounts[2]["id"];  
   controller.updateBal(id,'withdraw',250000);  
-  expect(controller.accounts[2]["balance"]).toBe(150000);
-  
+  expect(controller.accounts[2]["balance"]).toBe(150000);  
   controller.updateBal(id,'deposit',100000);
   expect(controller.accounts[2]["balance"]).toBe(250000);
-
 });
