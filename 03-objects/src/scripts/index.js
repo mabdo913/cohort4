@@ -20,17 +20,21 @@ document.body.addEventListener("click", (e) => {
 });
 
 document.body.addEventListener("click", (e) => {
-    if (e.target.nodeName == "BUTTON" && e.target.textContent == "Withdraw") {         
-        accounts.updateBal(parseInt(e.target.id), 'withdraw', parseFloat(inputAmount.value));
-        const amt = parseFloat(inputAmount.value);        
-        updateAccountDetails(parseInt(e.target.id));
+    if (e.target.nodeName == "BUTTON" && e.target.textContent == "Withdraw") {  
+        const id = document.querySelector("h2:nth-of-type(2)").id;
+        const amt = parseFloat(inputAmount.value);  
+
+        accounts.updateBal(parseInt(id), 'withdraw', parseFloat(inputAmount.value));              
+        updateAccountDetails(parseInt(id));
         label.textContent = 'Withdrawl in the amount of $' + amt + ' was successful!';
     }
 
     if (e.target.nodeName == "BUTTON" && e.target.textContent == "Deposit") {
-        const amt = parseFloat(inputAmount.value);        
-        accounts.updateBal(parseInt(e.target.id), 'deposit', amt);        
-        updateAccountDetails(parseInt(e.target.id));        
+        const id = document.querySelector("h2:nth-of-type(2)").id;
+        const amt = parseFloat(inputAmount.value);
+
+        accounts.updateBal(parseInt(id), 'deposit', amt);        
+        updateAccountDetails(parseInt(id));        
         label.textContent = 'Deposit in the amount of $' + amt + ' was successful!';
     }
 });
@@ -55,13 +59,13 @@ const updateAccountDetails = (id) => {
     
     divHTML = `<div id=${current["id"]} class='card'>
                         <h2>Account Name: ${current["name"]}</h4>
-                        <h2>Account Number: ${current["id"]}</h4>
+                        <h2 id="${current["id"]}">Account Number: ${current["id"]}</h4>
                         <h2>Balance: $${current["balance"]}</h4>                        
                         <input id="inputAmount" type="text" placeholder="Enter amount" required>
-                        <button id=${current["id"]}>Withdraw</button>                        
-                        <button id=${current["id"]}>Deposit</button><br><br>
+                        <button>Withdraw</button>                        
+                        <button>Deposit</button><br><br>
                         <label id ="label">                        
-                    </div>`;
+                </div>`;
 
     document.querySelector("#account-details").innerHTML = divHTML;
 };
