@@ -1,7 +1,15 @@
-const getFirstName = (data) => {
-    return "";
-};
+const fetchFunctions = {
 
-const getAllFirstNames = (data) => {
-    return 0;
-};
+    getFirstName : (data) => {        
+        return data[0].name;
+    },
+
+    getAllFirstNames : (data) => {        
+        return data.map(data => data.name);        
+    }
+
+} 
+
+
+
+export default fetchFunctions;

@@ -1,4 +1,5 @@
-import func from './fetch.js';
+
+import fetchFunctions from './fetch.js';
 
 const data = [
     {
@@ -233,4 +234,22 @@ const data = [
     }
   ]
 
-  expect()
+  test("Check if getFirstName function works", () =>  {    
+    expect(fetchFunctions.getFirstName(data)).toBe("Leanne Graham");
+  });
+
+  test("Check if getAllFirstNames function works", () =>  {    
+    expect(fetchFunctions.getAllFirstNames(data)).toEqual(
+      [ 'Leanne Graham',
+      'Ervin Howell',
+      'Clementine Bauch',
+      'Patricia Lebsack',
+      'Chelsey Dietrich',
+      'Mrs. Dennis Schulist',
+      'Kurtis Weissnat',
+      'Nicholas Runolfsdottir V',
+      'Glenna Reichert',
+      'Clementina DuBuque' ]    
+    );
+    
+  });
