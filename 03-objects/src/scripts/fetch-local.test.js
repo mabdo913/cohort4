@@ -1,5 +1,5 @@
 
-import fetchFunctions from './fetch.js';
+import fetchFunctions from './fetch-local.js';
 
 const data = [
     {

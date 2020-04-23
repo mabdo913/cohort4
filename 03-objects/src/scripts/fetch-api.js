@@ -15,7 +15,7 @@ const fetchFunctions = {
     async getUsers() {
         try {
             const response = await fetch(fetchFunctions.url);
-            const data = response.json();
+            const data = await response.json();
             return data;
         } catch (error) {
             console.error('Error:', error);
