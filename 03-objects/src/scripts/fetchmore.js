@@ -4,18 +4,18 @@ const fetchFunctions = {
 
     url: 'https://jsonplaceholder.typicode.com/users',
 
-    getFirstName : (data) => {        
+    getFirstName(data) {        
         return data[0].name;
     },
 
-    getAllFirstNames : (data) => {        
+    getAllFirstNames(data) {        
         return data.map(data => data.name);        
     },
 
     async getUsers() {
         try {
             const response = await fetch(fetchFunctions.url);
-            const data = await response.json();
+            const data = response.json();
             return data;
         } catch (error) {
             console.error('Error:', error);
@@ -28,6 +28,7 @@ const fetchFunctions = {
         console.log(fetchFunctions.getFirstName(data));
         console.log(fetchFunctions.getAllFirstNames(data));
     }
+
 
 } 
 
