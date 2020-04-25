@@ -43,8 +43,7 @@ test("Check if newAccount function works", () => {
 });
 
 test("Check if removeAccount function works", () => {
-  const id = controller.accounts[2]["id"];  
-  console.log(id);
+  const id = controller.accounts[2]["id"];   
   controller.removeAccount(id);
 
   expect(controller.accounts.length).toBe(3);
