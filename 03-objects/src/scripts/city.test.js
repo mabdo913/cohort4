@@ -11,9 +11,14 @@ test('Test OOP for City class', ()=>{
 
 test('Test OOP show method City class', () => {
     const cities = [];
-    cities.push(new cityStuff.City('New York', 40.71, -74.00, 8.41));
+    cities.push(new cityStuff.City('New York', 40.71, -74.01, 8.41));
     cities.push(new cityStuff.City('Los Angeles', 34.05, -118.24, 3.88));
 
-    cities[0].show();
-    expect(cities[0].name).toBe('Dallas');
+    expect(cities[0].show()).toBe(
+            "Name: New York, Latitude: 40.71, Longitude: -74.01, Population: 8.41 million"
+        );
+
+    expect(cities[1].show()).toBe(
+            "Name: Los Angeles, Latitude: 34.05, Longitude: -118.24, Population: 3.88 million"
+        );
 });
