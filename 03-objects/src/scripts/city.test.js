@@ -5,8 +5,8 @@ test('Test OOP for City class', ()=>{
 
     expect(london.name).toBe('London');
     expect(london.lat).toBe(51.51);
-    expect(london.lon).toBe(-0.12);
-    expect(london.pop).toBe(8987400);
+    expect(london.long).toBe(-0.12);
+    expect(london.population).toBe(8987400);
 });
 
 test('Test OOP show method in City class', () => {    
@@ -29,10 +29,10 @@ test('Test OOP movedIn method in City class', () => {
     cities.push(new cityStuff.City('Los Angeles', 34.05, -118.24, 3881450));
 
     cities[0].movedIn(65000);
-    expect(cities[0].pop).toBe(8484600);
+    expect(cities[0].population).toBe(8484600);
 
     cities[1].movedIn(120000);
-    expect(cities[1].pop).toBe(4001450);
+    expect(cities[1].population).toBe(4001450);
 });
 
 test('Test OOP movedOut method in City class', () => {    
@@ -41,10 +41,10 @@ test('Test OOP movedOut method in City class', () => {
     cities.push(new cityStuff.City('Los Angeles', 34.05, -118.24, 3881450));
 
     cities[0].movedOut(65000);
-    expect(cities[0].pop).toBe(8354600);
+    expect(cities[0].population).toBe(8354600);
 
     cities[1].movedOut(120000);
-    expect(cities[1].pop).toBe(3761450);
+    expect(cities[1].population).toBe(3761450);
 });
 
 test('Test OOP howBig method in City class', () => {    
