@@ -1,12 +1,13 @@
 const cityCommunityDOMFunctions = {};
 
 class City {
-    constructor(key, name, lat, long, population) {       
-        this.key = key;
+    constructor(name, lat, long, population, key) {
+        
         this.name = name,
         this.lat = parseFloat(parseFloat(lat).toFixed(2)),
         this.long = parseFloat(parseFloat(long).toFixed(2)),
         this.population = population;
+        this.key = key;
     }
 
     show() {
@@ -21,7 +22,7 @@ class City {
         this.population = this.population - num;
     }
 
-    howBig() {           
+    howBig() {
         let str = '';
 
         if (this.population > 100000) {
@@ -32,56 +33,63 @@ class City {
             str = 'Town';
         } else if (this.population > 100 && this.population < 1000) {
             str = 'Village';
-        } else if (this.population < 100) {
+        } else
             str = 'Hamlet';
-        }
-        return str;       
+
+        return str;
     }
 
     whichSphere() {
-        if (this.lat > 0) 
+        if (this.lat > 0)
             return "Northern Hemisphere";
-        
-        else 
-            return "Southern Hemisphere";        
+
+        else
+            return "Southern Hemisphere";
     }
 
 }
 
-    
+
 
 class Community {
-    constructor() {        
+    constructor() {
         this.cities = [];
     }
 
-    createCity(name, lat, long, population, key=null) {       
-        
+    createCity(name, lat, long, population, key = null) {
+
         if (key === null) {
 
             if (this.cities.length >= 1) {
                 let maxKey = this.cities.reduce((a, b) =>
-                    a.key > b.key ? a : b).key;                    
-                    key = maxKey + 1;    
-                
+                    a.key > b.key ? a : b).key;
+                key = maxKey + 1;
+
             }
             else {
                 key = 1;
             }
         }
-        const city = new City(key, name, lat, long, population);        
-        this.cities.push(city);               
+        const city = new City(name, lat, long, population, key);
+        this.cities.push(city);
     }
 
     delete(key) {
-        let index = this.cities.findIndex(x => x.key ===key);
-        let x = this.cities.splice(index,1);
-        console.log(x);
+        let index = this.cities.findIndex(x => x.key === key);
+        let x = this.cities.splice(index, 1);        
     }
 
-    getPopulation() {        
-        return this.cities.reduce((accum, obj) => accum + obj.population, 0);
+    getPopulation() {
+        return this.cities.reduce((accum, cities) => accum + cities.population, 0);
+    }
+
+    getMostNorthern() {
+        return (this.cities.reduce((prev, current) => (prev.lat > current.lat) ? prev : current)).name;
+    }
+
+    getMostSouthern() {
+        return (this.cities.reduce((prev, current) => (prev.lat < current.lat) ? prev : current)).name;
     }
 }
 
-export default { cityCommunityDOMFunctions, City, Community};
+export default { cityCommunityDOMFunctions, City, Community };
