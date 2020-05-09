@@ -9,7 +9,7 @@ test('Test OOP for City class', ()=>{
     expect(A.population).toBe(1);
 });
 
-/* test('Test OOP show method in City class', () => {    
+test('Test OOP show method in City class', () => {    
     const cities = [];
     cities.push(new cityStuff.City('New York', 40.71, -74.01, 8419600));
     cities.push(new cityStuff.City('Los Angeles', 34.05, -118.24, 3881450));
@@ -101,4 +101,4 @@ test('Test OOP delete method in City class', () => {
     prairies.delete(6);
     console.log(prairies.cities);
     expect(prairies.getPopulation()).toBe(41573);        
-}); */
+});
