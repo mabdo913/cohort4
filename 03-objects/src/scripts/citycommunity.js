@@ -1,7 +1,8 @@
-const cityFunctions = {};
+const cityCommunityDOMFunctions = {};
 
 class City {
-    constructor(name, lat, long, population) {
+    constructor(key, name, lat, long, population) {       
+        this.key = key;
         this.name = name,
         this.lat = parseFloat(parseFloat(lat).toFixed(2)),
         this.long = parseFloat(parseFloat(long).toFixed(2)),
@@ -54,10 +55,33 @@ class Community {
         this.cities = [];
     }
 
-    createCity(name, lat, long, population) {        
-        const city = new City(name, lat, long, population);
-        this.cities.push(city);        
+    createCity(name, lat, long, population, key=null) {       
+        
+        if (key === null) {
+
+            if (this.cities.length >= 1) {
+                let maxKey = this.cities.reduce((a, b) =>
+                    a.key > b.key ? a : b).key;                    
+                    key = maxKey + 1;    
+                
+            }
+            else {
+                key = 1;
+            }
+        }
+        const city = new City(key, name, lat, long, population);        
+        this.cities.push(city);               
+    }
+
+    delete(key) {
+        let index = this.cities.findIndex(x => x.key ===key);
+        let x = this.cities.splice(index,1);
+        console.log(x);
+    }
+
+    getPopulation() {        
+        return this.cities.reduce((accum, obj) => accum + obj.population, 0);
     }
 }
 
-export default { cityFunctions, City, Community};
+export default { cityCommunityDOMFunctions, City, Community};

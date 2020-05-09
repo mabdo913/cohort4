@@ -1,15 +1,15 @@
-import cityStuff from './city.js';
+import cityStuff from './citycommunity.js';
 
 test('Test OOP for City class', ()=>{
-    const london = new cityStuff.City('London', 51.51, -0.12, 8987400);
+    const A = new cityStuff.City('A', 1, -1, 1, 4);
 
-    expect(london.name).toBe('London');
-    expect(london.lat).toBe(51.51);
-    expect(london.long).toBe(-0.12);
-    expect(london.population).toBe(8987400);
+    expect(A.name).toBe('A');
+    expect(A.lat).toBe(1);
+    expect(A.long).toBe(-1);
+    expect(A.population).toBe(1);
 });
 
-test('Test OOP show method in City class', () => {    
+/* test('Test OOP show method in City class', () => {    
     const cities = [];
     cities.push(new cityStuff.City('New York', 40.71, -74.01, 8419600));
     cities.push(new cityStuff.City('Los Angeles', 34.05, -118.24, 3881450));
@@ -78,3 +78,27 @@ test('Test OOP whichSphere method in City class', () => {
     expect(cities[4].whichSphere()).toBe("Southern Hemisphere");
     expect(cities[5].whichSphere()).toBe("Northern Hemisphere");    
 });
+
+test('Test OOP getPopulation method in City class', () => {    
+    const prairies = new cityStuff.Community();
+    
+    prairies.createCity('Sylvan Lake', 52.31, -114.10, 14816, 3);
+    prairies.createCity('Cochrane', 51.19, -114.47, 25853, 6);
+    prairies.createCity('Churchill', 58.77, -94.16, 899);
+    prairies.createCity('Tilt Cove', 49.88, -55.62, 5);
+    
+    expect(prairies.getPopulation()).toBe(41573);        
+});
+
+test('Test OOP delete method in City class', () => {    
+    const prairies = new cityStuff.Community();
+    
+    prairies.createCity('Sylvan Lake', 52.31, -114.10, 14816, 3);
+    prairies.createCity('Cochrane', 51.19, -114.47, 25853, 6);
+    prairies.createCity('Churchill', 58.77, -94.16, 899);
+    prairies.createCity('Tilt Cove', 49.88, -55.62, 5);
+
+    prairies.delete(6);
+    console.log(prairies.cities);
+    expect(prairies.getPopulation()).toBe(41573);        
+}); */
