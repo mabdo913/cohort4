@@ -114,10 +114,10 @@ test('Test getPopulation() from Community class', () => {
 test('Test delete() from Community class', () => {    
     const prairies = new cityStuff.Community();
     
-    prairies.createCity('Sylvan Lake', 52.31, -114.10, 1);
-    prairies.createCity('Cochrane', 51.19, -114.47, 1);
-    prairies.createCity('Churchill', 58.77, -94.16, 1);
-    prairies.createCity('Tilt Cove', 49.88, -55.62, 1);
+    prairies.createCity('Sylvan Lake', 52.31, -114.10, 14816);
+    prairies.createCity('Cochrane', 51.19, -114.47, 25853);
+    prairies.createCity('Churchill', 58.77, -94.16, 899);
+    prairies.createCity('Tilt Cove', 49.88, -55.62, 5);
 
     prairies.delete(1);    
     
