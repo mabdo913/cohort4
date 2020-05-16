@@ -4,7 +4,7 @@ test('Test OOP for City class', ()=>{
     const newyork = new cityStuff.City('New York', 40.71, -74.01, 8419600, 1);
 
     expect(newyork instanceof cityStuff.City).toBe(true);
-    expect(newyork.name).toBe('New York');
+    expect(newyork.city).toBe('New York');
     expect(newyork.lat).toBe(40.71);
     expect(newyork.long).toBe(-74.01);
     expect(newyork.population).toBe(8419600);
@@ -16,11 +16,11 @@ test('Test show() from City class', () => {
     cities.push(new cityStuff.City('Los Angeles', 34.05, -118.24, 3881450, 2));
 
     expect(cities[0].show()).toBe(
-            "Name: New York, Latitude: 40.71, Longitude: -74.01, Population: 8419600"
+            "City: New York, Latitude: 40.71, Longitude: -74.01, Population: 8419600"
         );
 
     expect(cities[1].show()).toBe(
-            "Name: Los Angeles, Latitude: 34.05, Longitude: -118.24, Population: 3881450"
+            "City: Los Angeles, Latitude: 34.05, Longitude: -118.24, Population: 3881450"
         );
 });
 
@@ -93,7 +93,7 @@ test('Test OOP createCity() from Community class', () => {
     
     southAfrica.createCity('Johannesburg', -26.20, 28.03, 4434800);
     
-    expect(southAfrica.cities[0].name).toBe('Johannesburg');
+    expect(southAfrica.cities[0].city).toBe('Johannesburg');
     expect(southAfrica.cities[0].lat).toBe(-26.20);
     expect(southAfrica.cities[0].long).toBe(28.03);
     expect(southAfrica.cities[0].population).toBe(4434800);

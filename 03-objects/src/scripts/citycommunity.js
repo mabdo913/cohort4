@@ -1,9 +1,9 @@
 const cityCommunityDOMFunctions = {};
 
 class City {
-    constructor(name, lat, long, population, key) {
+    constructor(city, lat, long, population, key) {
         
-        this.name = name,
+        this.city = city,
         this.lat = parseFloat(parseFloat(lat).toFixed(2)),
         this.long = parseFloat(parseFloat(long).toFixed(2)),
         this.population = population;
@@ -11,7 +11,7 @@ class City {
     }
 
     show() {
-        return `Name: ${this.name}, Latitude: ${this.lat}, Longitude: ${this.long}, Population: ${this.population}`;
+        return `City: ${this.city}, Latitude: ${this.lat}, Longitude: ${this.long}, Population: ${this.population}`;
     }
 
     movedIn(num) {
@@ -56,7 +56,7 @@ class Community {
         this.cities = [];
     }
 
-    createCity(name, lat, long, population, key = null) {
+    createCity(city, lat, long, population, key = null) {
 
         if (key === null) {
 
@@ -70,13 +70,13 @@ class Community {
                 key = 1;
             }
         }
-        const city = new City(name, lat, long, population, key);
-        this.cities.push(city);
+        const newCity = new City(city, lat, long, population, key);
+        this.cities.push(newCity);
     }
 
     delete(key) {
         let index = this.cities.findIndex(x => x.key === key);
-        let x = this.cities.splice(index, 1);        
+        this.cities.splice(index, 1);        
     }
 
     getPopulation() {
@@ -84,11 +84,11 @@ class Community {
     }
 
     getMostNorthern() {
-        return (this.cities.reduce((prev, current) => (prev.lat > current.lat) ? prev : current)).name;
+        return (this.cities.reduce((prev, current) => (prev.lat > current.lat) ? prev : current)).city;
     }
 
     getMostSouthern() {
-        return (this.cities.reduce((prev, current) => (prev.lat < current.lat) ? prev : current)).name;
+        return (this.cities.reduce((prev, current) => (prev.lat < current.lat) ? prev : current)).city;
     }
 }
 

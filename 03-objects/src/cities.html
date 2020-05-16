@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">  
+</head>
+<body>
+  <div class="container">
+
+
+    <div class="row">
+      <div class="col-lg-4 themed-grid-col">
+          <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      </div>
+              <!-- <h3>City Lookup</h3>
+              <form>    
+                <div class="input-group input-group-lg">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg"></span>
+                  </div>
+                  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="idCityInput" required>
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" for="idLatitude" id="inputGroup-sizing-lg">Latitude</span>
+                  </div>
+                  <input type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="idLatitude" placeholder="Enter Latitude" min="-90" max="90" required>
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" for="idLongitude" id="inputGroup-sizing-lg">Longitude</span>
+                  </div>
+                  <input type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="idLongitude" placeholder="Enter Longitude" min="-180" max="180" required>
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" for="idPopulation" id="inputGroup-sizing-lg">Population</span>
+                  </div>
+                  <input type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="idPopulation" placeholder="Enter Population" required>
+                </div>    
+                <button type="submit" class="btn btn-primary" id="idAddButton">Add City</button>
+              </form>   -->  
+        <div class="col-lg-1 themed-grid-col">
+                             
+        </div>
+        
+        <div class="col-lg-7 themed-grid-col">
+              <h4>Nothernmost City: </h4><span></span>
+              <h4>Southernmost City: </h4><span></span>
+              <h4>Total Population (all cities): </h4><span></span>              
+        </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div id="cityCards"></div>
+  </div>
+
+  
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>  
+<script>
+  activateAutoComplete = () => {
+      const input = document.getElementById('idCityInput');
+      const options = {            
+          types: ['(regions)']
+          };
+      const autoComplete = new google.maps.places.Autocomplete(input, options);        
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmIZN0Z1PzeQG5tmt7IayiipI9g_CCmJ8&libraries=places&callback=activateAutoComplete"
+async defer>
+</script>
+</body>
+</html>
