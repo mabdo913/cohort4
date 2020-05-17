@@ -1,63 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>City and Community</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">  
 </head>
 <body>
   <div class="container">
-
-
     <div class="row">
-      <div class="col-lg-4 themed-grid-col">
-          <form>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-      </div>
-              <!-- <h3>City Lookup</h3>
-              <form>    
-                <div class="input-group input-group-lg">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-lg"></span>
+        <div class="col-6">
+          <h1 class="display-5">Add City Form</h1>
+            <form class="m-1 p-1">
+                  <div class="form-group">
+                    <label for="cityInput">City</label>
+                    <input type="text" class="form-control" id="cityInput" required>                  
                   </div>
-                  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="idCityInput" required>
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" for="idLatitude" id="inputGroup-sizing-lg">Latitude</span>
+                  <div class="form-group">
+                    <label for="latitudeInput">Latitude</label>
+                    <input type="number" class="form-control" id="latitudeInput" min="-90" max="90" required>
+                    <small id="latitudeInput" class="form-text text-muted">Enter a number between -90 and 90.</small>
                   </div>
-                  <input type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="idLatitude" placeholder="Enter Latitude" min="-90" max="90" required>
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" for="idLongitude" id="inputGroup-sizing-lg">Longitude</span>
+                  <div class="form-group">
+                    <label for="longitudeInput">Longitude</label>
+                    <input type="number" class="form-control" id="longitudeInput" min="-180" max="180" required>
+                    <small id="longitudeInput" class="form-text text-muted">Enter a number between -180 and 180.</small>
                   </div>
-                  <input type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="idLongitude" placeholder="Enter Longitude" min="-180" max="180" required>
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" for="idPopulation" id="inputGroup-sizing-lg">Population</span>
+                  <div class="form-group">
+                    <label for="populationInput">Population</label>
+                    <input type="number" class="form-control" id="populationInput" required>                  
                   </div>
-                  <input type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="idPopulation" placeholder="Enter Population" required>
-                </div>    
-                <button type="submit" class="btn btn-primary" id="idAddButton">Add City</button>
-              </form>   -->  
-        <div class="col-lg-1 themed-grid-col">
-                             
+                  <button type="submit" class="btn btn-primary" id="addCityButton">Add City</button>
+            </form>
+            <p class="m-1 p-1">Cities added to the community will appear below.</p>
         </div>
-        
-        <div class="col-lg-7 themed-grid-col">
+        <div class="col-1">                            
+        </div>
+        <div class="col-5">
+              <h1 class="display-5">Community Stats</h1>
               <h4>Nothernmost City: </h4><span></span>
               <h4>Southernmost City: </h4><span></span>
-              <h4>Total Population (all cities): </h4><span></span>              
+              <h4>Total Population (all cities): </h4><span></span>  
+              <div class="jumbotron">
+                <h1 class="display-4">Community Stats</h1>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured
+                  content or information.</p>
+                <hr class="my-4">
+                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+              </div>
         </div>
-    </div>
+      </div>
   </div>
   
   <div class="container">
@@ -70,7 +63,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>  
 <script>
   activateAutoComplete = () => {
-      const input = document.getElementById('idCityInput');
+      const input = document.getElementById('cityInput');
       const options = {            
           types: ['(regions)']
           };
