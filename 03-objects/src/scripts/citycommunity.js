@@ -1,4 +1,9 @@
+global.fetch = require('node-fetch');
+
+const url = 'http://localhost:5000/';
+
 const cityCommunityDOMFunctions = {
+
     createCityCard: cityObj => {
         /* //create elements we need 
         const div = document.createElement("div");
@@ -21,7 +26,33 @@ const cityCommunityDOMFunctions = {
         div.className = 'card'; div.style.border = "2px solid black";
  */
         return div;
+    },
+
+    //addCity: (city,lat,long,pop)
+
+    postData: async (url = '', data = {}) => {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'POST',     // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors',       // no-cors, *cors, same-origin
+            cache: 'no-cache',  // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: 'follow',         // manual, *follow, error
+            referrer: 'no-referrer',    // no-referrer, *client
+            body: JSON.stringify(data)  // body data type must match "Content-Type" header
+        });
+    
+        const json = await response.json();    // parses JSON response into native JavaScript objects
+        json.status = response.status;
+        json.statusText = response.statusText;
+        
+        return json;
     }
+
 }
 
 class City {
