@@ -1,3 +1,6 @@
+global.fetch = require('node-fetch');
+const url = 'http://localhost:5000/';
+
 class City {
 
     constructor(name, lat, long, population, key) {
@@ -48,5 +51,95 @@ class City {
     }
 
 }
+class Community {
+    constructor() {
+        this.cities = [];
+    }
 
-export default {City};
+    createCity(city, lat, long, population, key = null) {
+
+        if (key === null) {
+
+            if (this.cities.length >= 1) {
+                let maxKey = this.cities.reduce((a, b) =>
+                    a.key > b.key ? a : b).key;
+                key = maxKey + 1;
+
+            }
+            else {
+                key = 1;
+            }
+        }
+        const newCity = new City(city, lat, long, population, key);
+        this.cities.push(newCity);
+    }
+
+    delete(key) {
+        let index = this.cities.findIndex(x => x.key === key);
+        this.cities.splice(index, 1); 
+        return key      
+    }
+
+    getPopulation() {
+        return this.cities.reduce((accum, cities) => accum + cities.population, 0);
+    }
+
+    getMostNorthern() {
+        return (this.cities.reduce((prev, current) => (prev.lat > current.lat) ? prev : current)).name;
+    }
+
+    getMostSouthern() {
+        return (this.cities.reduce((prev, current) => (prev.lat < current.lat) ? prev : current)).name;
+    }
+}
+
+// city Dom and the postData function
+
+
+const DOM = {
+
+    // createCityCard: {
+    //     data = await postData(url + 'add', community.cities);
+       
+
+
+    // },
+
+    //addCity: (city,lat,long,pop)
+
+    postData: async (url = '', data = {}) => {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'POST',     // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors',       // no-cors, *cors, same-origin
+            cache: 'no-cache',  // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: 'follow',         // manual, *follow, error
+            referrer: 'no-referrer',    // no-referrer, *client
+            body: JSON.stringify(data)  // body data type must match "Content-Type" header
+        });
+    
+        const json = await response.json();    // parses JSON response into native JavaScript objects
+        json.status = response.status;
+        json.statusText = response.statusText;
+        
+        return json;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+export default {City, Community, DOM};
