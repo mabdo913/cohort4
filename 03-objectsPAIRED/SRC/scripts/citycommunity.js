@@ -91,55 +91,39 @@ class Community {
     getMostSouthern() {
         return (this.cities.reduce((prev, current) => (prev.lat < current.lat) ? prev : current)).name;
     }
+
+
+// API Fetch
+async createCard () {
+    console.log ("you are in create card")
 }
 
-// city Dom and the postData function
+async postData(url = '', data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: 'POST',     // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors',       // no-cors, *cors, same-origin
+        cache: 'no-cache',  // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow',         // manual, *follow, error
+        referrer: 'no-referrer',    // no-referrer, *client
+        body: JSON.stringify(data)  // body data type must match "Content-Type" header
+    });
 
+    const json = await response.json();    // parses JSON response into native JavaScript objects
+    json.status = response.status;
+    json.statusText = response.statusText;
 
-const DOM = {
-
-    // createCityCard: {
-    //     data = await postData(url + 'add', community.cities);
-       
-
-
-    // },
-
-    //addCity: (city,lat,long,pop)
-
-    postData: async (url = '', data = {}) => {
-        // Default options are marked with *
-        const response = await fetch(url, {
-            method: 'POST',     // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors',       // no-cors, *cors, same-origin
-            cache: 'no-cache',  // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
-            headers: {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            redirect: 'follow',         // manual, *follow, error
-            referrer: 'no-referrer',    // no-referrer, *client
-            body: JSON.stringify(data)  // body data type must match "Content-Type" header
-        });
-    
-        const json = await response.json();    // parses JSON response into native JavaScript objects
-        json.status = response.status;
-        json.statusText = response.statusText;
-        
-        return json;
-    }
+    return json;
+}
 
 }
 
 
 
 
-
-
-
-
-
-
-
-export default {City, Community, DOM};
+export default {City, Community};
