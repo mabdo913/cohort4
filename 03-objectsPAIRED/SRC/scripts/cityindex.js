@@ -8,8 +8,9 @@ addCityButton.addEventListener('click', async () => {
         document.getElementById('lat').value,
         document.getElementById('long').value,
         document.getElementById('pop').value,
+        
         );
-
-},
 console.log (controller.cities)
+},
+
 )
