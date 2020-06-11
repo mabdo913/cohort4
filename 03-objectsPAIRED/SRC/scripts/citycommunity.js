@@ -109,6 +109,10 @@ class Community {
     long.textContent = "Longitude: " + city.long;
     const population = document.createElement('p');
     population.textContent = "Population: " + city.population;
+    const hemi = document.createElement('p');
+    hemi.textContent = city.whichSphere();
+    const identity= document.createElement('p');
+    identity.textContent = city.howBig();
     const label = document.createElement('label');
     label.setAttribute('for','popchange');
     const input = document.createElement('input');
@@ -116,7 +120,7 @@ class Community {
     input.setAttribute('id','popchange');
     input.setAttribute('name','quantity');
 
-    const br = document.createElement("BR")
+   
 
     const moveInButton = document.createElement('button');
     moveInButton.textContent = "Moved In"
@@ -129,19 +133,32 @@ class Community {
     moveOutButton.setAttribute('class', 'btn btn-primary');
     moveOutButton.setAttribute('id', 'movedOut');
 
-    // moveInButton.insertBefore(br,moveInButton);
+    const trash = document.createElement('i');
+    trash.setAttribute('class', 'fa fa-trash-o trash');
+
+
+
+    
+
+
 
     // append elements to div(s)
     bodyDiv.appendChild(cityName);
     bodyDiv.appendChild(latitude);
     bodyDiv.appendChild(long);
     bodyDiv.appendChild(population);
+    bodyDiv.appendChild(hemi);
+    bodyDiv.appendChild(identity);
+
     bodyDiv.appendChild(label);
     bodyDiv.appendChild(input);
     bodyDiv.appendChild(moveInButton);
     bodyDiv.appendChild(moveOutButton);
+    bodyDiv.appendChild(trash);
 
     cardDiv.appendChild(bodyDiv);
+
+  
 
     return cardDiv;    
 }
