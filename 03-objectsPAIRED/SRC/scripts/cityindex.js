@@ -1,15 +1,15 @@
 import functions from './citycommunity.js'
 
-const community = new functions.Community.createCity();
+const controller = new functions.Community();
 
 addCityButton.addEventListener('click', async () => {
-    community.createCity(
-        document.getElementById('city').value,
+    controller.createCity(
+        document.getElementById('name').value,
         document.getElementById('lat').value,
         document.getElementById('long').value,
         document.getElementById('pop').value,
         );
 
 },
-console.log (community.cities)
+console.log (controller.cities)
 )
