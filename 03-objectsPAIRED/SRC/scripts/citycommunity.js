@@ -17,13 +17,13 @@ class City {
     }
 
     movedIn(num) {
-        this.population = this.population + num;
-        return this.population;
+        this.population = this.population + num;    
+        return this.population; // might need to delete later
     }
 
     movedOut(num) {
         this.population = this.population - num;
-        return this.population;
+        return this.population; // might need to delete later
     }
 
     howBig() {
@@ -95,8 +95,7 @@ class Community {
 
 // API Fetch
  createCard (city) {
-     // create elements
-    console.log ("you are in create card")
+     // create elements    
     const cardDiv = document.createElement('div');
     cardDiv.setAttribute('class', 'card w-100');
     const bodyDiv = document.createElement('div');
@@ -108,6 +107,7 @@ class Community {
     const long = document.createElement('p');
     long.textContent = "Longitude: " + city.long;
     const population = document.createElement('p');
+    population.value = 0;
     population.textContent = "Population: " + city.population;
     const hemi = document.createElement('p');
     hemi.textContent = city.whichSphere();
@@ -127,6 +127,19 @@ class Community {
     moveInButton.setAttribute('type', 'button');
     moveInButton.setAttribute('class', 'btn btn-primary');
     moveInButton.setAttribute('id', 'movedIn');
+
+
+    moveInButton.addEventListener('click', async () =>{    
+            console.log(input.value, typeof input.value)    
+            city.movedIn(parseInt(input.value));            
+            identity.textContent = city.howBig();
+            //populationLabel.textContent = 'Population: ' + city.pop;
+            population.textContent = "Population: " + city.population;
+            //console.log(city.population);
+            population.value = "";     
+            cityindex.stats();   
+    })
+
     const moveOutButton = document.createElement('button');
     moveOutButton.textContent = "Moved Out"
     moveOutButton.setAttribute('type', 'button');
@@ -134,11 +147,7 @@ class Community {
     moveOutButton.setAttribute('id', 'movedOut');
 
     const trash = document.createElement('i');
-    trash.setAttribute('class', 'fa fa-trash-o trash');
-
-
-
-    
+    trash.setAttribute('class', 'fa fa-trash-o trash');   
 
 
 
@@ -161,6 +170,23 @@ class Community {
   
 
     return cardDiv;    
+}
+
+    stats () {
+
+        if (controller.cities.length > 0)
+        {
+            let northern = document.getElementById("mostNorth");
+            northern.textContent = controller.getMostNorthern();
+
+            let southern = document.getElementById("mostSouth");
+            southern.textContent = controller.getMostSouthern();
+
+            let total = document.getElementById("totPop");
+            total.textContent = parseInt(controller.getPopulation());
+            
+
+        }
 }
 
 async postData(url = '', data = {}) {

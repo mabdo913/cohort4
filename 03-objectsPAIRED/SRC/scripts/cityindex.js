@@ -15,10 +15,19 @@ addCityButton.addEventListener('click', async () => {
     
     
 console.log (controller.cities);
-stats();
+functions.stats();
 
 }
 )
+
+/* addEventListener('click', e => {
+
+    if (e.target.nodeName == 'BUTTON' && e.target.textContent == "Moved In") {
+        alert ('hello');
+    }
+
+
+}) */
 
 
 
