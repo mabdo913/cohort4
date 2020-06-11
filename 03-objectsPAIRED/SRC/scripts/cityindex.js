@@ -12,24 +12,12 @@ addCityButton.addEventListener('click', async () => {
         );
     const jumbo = document.getElementById("jumbotron");
     jumbo.appendChild(controller.createCard(controller.cities[controller.cities.length - 1]));
-    
-    
-console.log (controller.cities);
-functions.stats();
+    console.log (controller.cities);
+stats();
+
 
 }
-)
-
-/* addEventListener('click', e => {
-
-    if (e.target.nodeName == 'BUTTON' && e.target.textContent == "Moved In") {
-        alert ('hello');
-    }
-
-
-}) */
-
-
+);
 
 
 function stats () {
@@ -47,6 +35,6 @@ function stats () {
         
 
     }
-};
 
 
+}

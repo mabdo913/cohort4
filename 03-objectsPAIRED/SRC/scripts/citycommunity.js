@@ -74,10 +74,12 @@ class Community {
         this.cities.push(newCity);
     }
 
-    delete(key) {
-        let index = this.cities.findIndex(x => x.key === key);
+    delete(nameOfCity) {
+        let index = this.cities.findIndex(x => x.name === nameOfCity);
         this.cities.splice(index, 1); 
-        return key      
+
+        // this.cityList.splice(this.cityList.findIndex(value => value.name == cityName), 1)
+        return nameOfCity   
     }
 
     getPopulation() {
@@ -107,7 +109,6 @@ class Community {
     const long = document.createElement('p');
     long.textContent = "Longitude: " + city.long;
     const population = document.createElement('p');
-    population.value = 0;
     population.textContent = "Population: " + city.population;
     const hemi = document.createElement('p');
     hemi.textContent = city.whichSphere();
@@ -129,15 +130,21 @@ class Community {
     moveInButton.setAttribute('id', 'movedIn');
 
 
-    moveInButton.addEventListener('click', async () =>{    
+    moveInButton.addEventListener('click', async () =>{ 
+           
+       if (input.value > 0) {
             console.log(input.value, typeof input.value)    
             city.movedIn(parseInt(input.value));            
             identity.textContent = city.howBig();
-            //populationLabel.textContent = 'Population: ' + city.pop;
             population.textContent = "Population: " + city.population;
-            //console.log(city.population);
-            population.value = "";     
-            cityindex.stats();   
+            input.value = "";     
+
+            let total = document.getElementById("totPop");
+            total.textContent = this.cities.reduce((accum, cities) => accum + cities.population, 0);
+       } else {
+           alert ("Need a value");
+       }
+  
     })
 
     const moveOutButton = document.createElement('button');
@@ -146,8 +153,35 @@ class Community {
     moveOutButton.setAttribute('class', 'btn btn-primary');
     moveOutButton.setAttribute('id', 'movedOut');
 
+    moveOutButton.addEventListener('click', async () =>{ 
+           
+        if (input.value > 0) {
+             console.log(input.value, typeof input.value)    
+             city.movedOut(parseInt(input.value));            
+             identity.textContent = city.howBig();
+             population.textContent = "Population: " + city.population;
+             input.value = "";     
+ 
+             let total = document.getElementById("totPop");
+             total.textContent = this.cities.reduce((accum, cities) => accum + cities.population, 0);
+        } else {
+            alert ("Need a value");
+        }
+   
+     })
+
+
+     // DELETE
     const trash = document.createElement('i');
-    trash.setAttribute('class', 'fa fa-trash-o trash');   
+    trash.setAttribute('class', 'fa fa-trash-o trash');  
+
+    trash.addEventListener('click', async (e) =>{ 
+           this.delete(cityName.textContent);
+            e.target.parentNode.remove();
+            console.log (this.cities);
+     })
+    
+    
 
 
 
@@ -172,22 +206,7 @@ class Community {
     return cardDiv;    
 }
 
-    stats () {
 
-        if (controller.cities.length > 0)
-        {
-            let northern = document.getElementById("mostNorth");
-            northern.textContent = controller.getMostNorthern();
-
-            let southern = document.getElementById("mostSouth");
-            southern.textContent = controller.getMostSouthern();
-
-            let total = document.getElementById("totPop");
-            total.textContent = parseInt(controller.getPopulation());
-            
-
-        }
-}
 
 async postData(url = '', data = {}) {
     // Default options are marked with *
