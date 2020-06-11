@@ -94,8 +94,49 @@ class Community {
 
 
 // API Fetch
-async createCard () {
+ createCard (city) {
+     // create elements
     console.log ("you are in create card")
+    const cardDiv = document.createElement('div');
+    cardDiv.setAttribute('class', 'card w-100');
+    const bodyDiv = document.createElement('div');
+    bodyDiv.setAttribute('class', 'card-body');
+    const cityName = document.createElement('h5');
+    cityName.textContent = city.name;
+    const latitude = document.createElement('p');
+    latitude.textContent = city.lat;
+    const long = document.createElement('p');
+    const population = document.createElement('p');
+    const label = document.createElement('label');
+    label.setAttribute('for','popchange');
+    const input = document.createElement('input');
+    input.setAttribute('type','number');
+    input.setAttribute('id','popchange');
+    input.setAttribute('name','quantity');
+    const moveInButton = document.createElement('button');
+    const moveOutButton = document.createElement('button');
+    moveInButton.setAttribute('type', 'submit');
+    moveInButton.textContent = "Moved In"
+    moveOutButton.textContent = "Moved Out"
+    moveInButton.setAttribute('class', 'btn btn-primary');
+    moveInButton.setAttribute('id', 'movedIn');
+    moveOutButton.setAttribute('type', 'submit');
+    moveOutButton.setAttribute('class', 'btn btn-primary');
+    moveOutButton.setAttribute('id', 'movedOut');
+
+    // append elements to div(s)
+    bodyDiv.appendChild(cityName);
+    bodyDiv.appendChild(latitude);
+    bodyDiv.appendChild(long);
+    bodyDiv.appendChild(population);
+    bodyDiv.appendChild(label);
+    bodyDiv.appendChild(input);
+    bodyDiv.appendChild(moveInButton);
+    bodyDiv.appendChild(moveOutButton);
+
+    cardDiv.appendChild(bodyDiv);
+
+    return cardDiv;    
 }
 
 async postData(url = '', data = {}) {
