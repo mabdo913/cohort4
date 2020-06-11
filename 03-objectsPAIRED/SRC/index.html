@@ -18,21 +18,21 @@
             <form class="m-1 p-1">
                   <div class="form-group">
                     <label for="cityInput">City</label>
-                    <input type="text" class="form-control" id="cityInput" required>                  
+                    <input type="text" class="form-control" id="city" required>                  
                   </div>
                   <div class="form-group">
                     <label for="latitudeInput">Latitude</label>
-                    <input type="number" class="form-control" id="latitudeInput" min="-90" max="90" required>
+                    <input type="number" class="form-control" id="lat" min="-90" max="90" required>
                     <small id="latitudeInput" class="form-text text-muted">Enter a number between -90 and 90.</small>
                   </div>
                   <div class="form-group">
                     <label for="longitudeInput">Longitude</label>
-                    <input type="number" class="form-control" id="longitudeInput" min="-180" max="180" required>
+                    <input type="number" class="form-control" id="long" min="-180" max="180" required>
                     <small id="longitudeInput" class="form-text text-muted">Enter a number between -180 and 180.</small>
                   </div>
                   <div class="form-group">
                     <label for="populationInput">Population</label>
-                    <input type="number" class="form-control" id="populationInput" required>                  
+                    <input type="number" class="form-control" id="pop" required>                  
                   </div>
                   <button type="submit" class="btn btn-primary" id="addCityButton">Add City</button>
             </form>
@@ -113,5 +113,9 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmIZN0Z1PzeQG5tmt7IayiipI9g_CCmJ8&libraries=places&callback=activateAutoComplete"
 async defer>
 </script>
+
+<script type="module" src="./scripts/cityindex.js"></script>
+
+
 </body>
 </html>

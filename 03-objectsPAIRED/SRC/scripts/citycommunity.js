@@ -1,5 +1,5 @@
-global.fetch = require('node-fetch');
-const url = 'http://localhost:5000/';
+// global.fetch = require('node-fetch');
+// const url = 'http://localhost:5000/';
 
 class City {
 
