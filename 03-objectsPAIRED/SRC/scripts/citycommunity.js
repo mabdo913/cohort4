@@ -102,27 +102,34 @@ class Community {
     const bodyDiv = document.createElement('div');
     bodyDiv.setAttribute('class', 'card-body');
     const cityName = document.createElement('h5');
-    cityName.textContent = city.name;
+    cityName.textContent =  city.name;
     const latitude = document.createElement('p');
-    latitude.textContent = city.lat;
+    latitude.textContent = "Latitude: " + city.lat;
     const long = document.createElement('p');
+    long.textContent = "Longitude: " + city.long;
     const population = document.createElement('p');
+    population.textContent = "Population: " + city.population;
     const label = document.createElement('label');
     label.setAttribute('for','popchange');
     const input = document.createElement('input');
     input.setAttribute('type','number');
     input.setAttribute('id','popchange');
     input.setAttribute('name','quantity');
+
+    const br = document.createElement("BR")
+
     const moveInButton = document.createElement('button');
-    const moveOutButton = document.createElement('button');
-    moveInButton.setAttribute('type', 'submit');
     moveInButton.textContent = "Moved In"
-    moveOutButton.textContent = "Moved Out"
+    moveInButton.setAttribute('type', 'button');
     moveInButton.setAttribute('class', 'btn btn-primary');
     moveInButton.setAttribute('id', 'movedIn');
-    moveOutButton.setAttribute('type', 'submit');
+    const moveOutButton = document.createElement('button');
+    moveOutButton.textContent = "Moved Out"
+    moveOutButton.setAttribute('type', 'button');
     moveOutButton.setAttribute('class', 'btn btn-primary');
     moveOutButton.setAttribute('id', 'movedOut');
+
+    // moveInButton.insertBefore(br,moveInButton);
 
     // append elements to div(s)
     bodyDiv.appendChild(cityName);
