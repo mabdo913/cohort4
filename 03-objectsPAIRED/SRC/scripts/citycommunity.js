@@ -103,7 +103,7 @@ class Community {
      // create elements    
     const cardDiv = document.createElement('div');
     cardDiv.setAttribute('class', 'card w-100');
-    // cardDiv.setAttribute('value', city.key);
+    cardDiv.setAttribute('value', city.key);
     const bodyDiv = document.createElement('div');
     bodyDiv.setAttribute('class', 'card-body');
     const cityName = document.createElement('h5');
@@ -205,11 +205,22 @@ class Community {
     bodyDiv.appendChild(trash);
 
     cardDiv.appendChild(bodyDiv);
-
+     console.log(this.cities)
   
 
     return cardDiv;    
 }
+
+/* async getCitiesFromServer () {
+    let data = await community.postData(url + 'all')
+    
+    data.forEach(city => {
+        createCard(city);
+    });
+
+    return cards;
+
+} */
 
 
 

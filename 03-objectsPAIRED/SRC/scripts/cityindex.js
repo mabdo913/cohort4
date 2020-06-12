@@ -38,3 +38,11 @@ function stats () {
 
 
 }
+
+/* document.addEventListener('DOMContentLoaded', (event) => {
+
+    const cityCards = functions.getCitiesFromServer();
+    jumbo.appendChild(cityCards);
+    console.log('DOM fully loaded and parsed');
+
+}); */
