@@ -45,11 +45,14 @@ class City {
     whichSphere() {
         if (this.lat > 0)
             return "Northern Hemisphere";
-        else
+        else if (this.lat < 0)
             return "Southern Hemisphere";
+        else 
+            return "Equator";
     }
 
 }
+
 class Community {
     constructor() {
         this.cities = [];
@@ -71,7 +74,7 @@ class Community {
         }
         const newCity = new City(city, lat, long, population, key);
         this.cities.push(newCity);
-        let data = await community.postData(url + 'add', community.cities[key-1])
+        // let data = await community.postData(url + 'add', community.cities[key-1])
     }
 
     delete(nameOfCity) {
