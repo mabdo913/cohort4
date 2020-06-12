@@ -77,12 +77,12 @@ class Community {
         
     }
 
-    delete(nameOfCity) {
-        let index = this.cities.findIndex(x => x.name === nameOfCity);
+    delete(key) {
+        let index = this.cities.findIndex(x => x.key === key);
         this.cities.splice(index, 1); 
 
         // this.cityList.splice(this.cityList.findIndex(value => value.name == cityName), 1)
-        return nameOfCity   
+        return key   
     }
 
     getPopulation() {
@@ -183,8 +183,9 @@ class Community {
 
     trash.addEventListener('click', async (e) =>{ 
 
-           this.delete(cityName.textContent);
+           
            let data = await this.postData(url + 'delete', {key:city.key}); 
+           this.delete(city.key);
             e.target.parentNode.remove();
             console.log (this.cities);
             let total = document.getElementById("totPop");
