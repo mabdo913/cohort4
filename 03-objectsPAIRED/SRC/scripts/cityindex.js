@@ -1,5 +1,7 @@
 import functions from './citycommunity.js'
 
+const url = 'http://localhost:5000/';
+
 const controller = new functions.Community();
 
 addCityButton.addEventListener('click', async () => {
@@ -13,6 +15,7 @@ addCityButton.addEventListener('click', async () => {
     const jumbo = document.getElementById("jumbotron");
     jumbo.appendChild(controller.createCard(controller.cities[controller.cities.length - 1]));
     console.log (controller.cities);
+    let data = await controller.postData(url + 'add', controller.cities[controller.cities.length - 1])
 stats();
 
 

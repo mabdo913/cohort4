@@ -74,7 +74,7 @@ class Community {
         }
         const newCity = new City(city, lat, long, population, key);
         this.cities.push(newCity);
-        // let data = await community.postData(url + 'add', community.cities[key-1])
+        
     }
 
     delete(nameOfCity) {
@@ -138,7 +138,8 @@ class Community {
            
        if (input.value > 0) {
             console.log(input.value, typeof input.value)    
-            city.movedIn(parseInt(input.value));            
+            city.movedIn(parseInt(input.value));  
+            let data = await this.postData(url + 'update', {key:city.key, city:city});
             identity.textContent = city.howBig();
             population.textContent = "Population: " + city.population;
             input.value = "";     
@@ -161,7 +162,8 @@ class Community {
            
         if (input.value > 0) {
              console.log(input.value, typeof input.value)    
-             city.movedOut(parseInt(input.value));            
+             city.movedOut(parseInt(input.value)); 
+             let data = await this.postData(url + 'update', {key:city.key, city:city});           
              identity.textContent = city.howBig();
              population.textContent = "Population: " + city.population;
              input.value = "";     
@@ -182,6 +184,7 @@ class Community {
     trash.addEventListener('click', async (e) =>{ 
 
            this.delete(cityName.textContent);
+           let data = await this.postData(url + 'update', {key:city.key}); 
             e.target.parentNode.remove();
             console.log (this.cities);
      })
