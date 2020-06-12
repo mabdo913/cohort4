@@ -184,7 +184,7 @@ class Community {
     trash.addEventListener('click', async (e) =>{ 
 
            this.delete(cityName.textContent);
-           let data = await this.postData(url + 'update', {key:city.key}); 
+           let data = await this.postData(url + 'delete', {key:city.key}); 
             e.target.parentNode.remove();
             console.log (this.cities);
      })
