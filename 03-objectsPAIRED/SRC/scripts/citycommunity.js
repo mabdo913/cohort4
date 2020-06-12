@@ -176,6 +176,7 @@ class Community {
     trash.setAttribute('class', 'fa fa-trash-o trash');  
 
     trash.addEventListener('click', async (e) =>{ 
+
            this.delete(cityName.textContent);
             e.target.parentNode.remove();
             console.log (this.cities);

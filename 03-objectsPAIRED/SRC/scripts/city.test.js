@@ -26,7 +26,7 @@ test('Test our Community class', () => {
     community.createCity('Los Angeles', 34.05, -118.24, 3881450);
     community.createCity('Johannesburg', -26.20, 28.03, 4434800);
     
-    expect(community.delete("Los Angeles")).toBe("Los Angeles");
+    expect(community.delete('Los Angeles')).toBe('Los Angeles');
     expect(community.getPopulation()).toBe(12854400);
     console.log (community.cities);
     expect(community.getMostNorthern()).toBe('New York');
