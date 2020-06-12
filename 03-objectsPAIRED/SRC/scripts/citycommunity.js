@@ -217,15 +217,15 @@ class Community {
     return cardDiv;    
 }
 
-async getCitiesFromServer () {
-    let data = await community.postData(url + 'all')
+// async getCitiesFromServer () {
+//     let data = await community.postData(url + 'all')
     
-    data.forEach(city => {
-        createCard(city);
-    });
+//     data.forEach(city => {
+//         createCard(city);
+//     });
 
-    return cards;
-}
+//     return cards;
+// }
 
 
 
