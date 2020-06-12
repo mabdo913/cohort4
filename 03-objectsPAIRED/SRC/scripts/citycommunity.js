@@ -1,5 +1,4 @@
-// global.fetch = require('node-fetch');
-// const url = 'http://localhost:5000/';
+const url = 'http://localhost:5000/';
 
 class City {
 
@@ -56,7 +55,7 @@ class Community {
         this.cities = [];
     }
 
-    createCity(city, lat, long, population, key = null) {
+    async createCity(city, lat, long, population, key = null) {
 
         if (key === null) {
 
@@ -72,6 +71,7 @@ class Community {
         }
         const newCity = new City(city, lat, long, population, key);
         this.cities.push(newCity);
+        let data = await community.postData(url + 'add', community.cities[key-1])
     }
 
     delete(nameOfCity) {
@@ -100,6 +100,7 @@ class Community {
      // create elements    
     const cardDiv = document.createElement('div');
     cardDiv.setAttribute('class', 'card w-100');
+    // cardDiv.setAttribute('value', city.key);
     const bodyDiv = document.createElement('div');
     bodyDiv.setAttribute('class', 'card-body');
     const cityName = document.createElement('h5');
