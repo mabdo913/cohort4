@@ -187,6 +187,8 @@ class Community {
            let data = await this.postData(url + 'delete', {key:city.key}); 
             e.target.parentNode.remove();
             console.log (this.cities);
+            let total = document.getElementById("totPop");
+            total.textContent = this.cities.reduce((accum, cities) => accum + cities.population, 0);
      })
     
     
