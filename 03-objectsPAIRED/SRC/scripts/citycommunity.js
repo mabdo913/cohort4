@@ -134,10 +134,10 @@ class Community {
     moveInButton.setAttribute('id', 'movedIn');
 
 
-    moveInButton.addEventListener('click', async () =>{ 
+     moveInButton.addEventListener('click', async () =>{ 
            
        if (input.value > 0) {
-            console.log(input.value, typeof input.value)    
+            //console.log(input.value, typeof input.value)    
             city.movedIn(parseInt(input.value));  
             let data = await this.postData(url + 'update', {key:city.key, city:city});
             identity.textContent = city.howBig();
@@ -150,7 +150,7 @@ class Community {
            alert ("Need a value");
        }
   
-    })
+    }) 
 
     const moveOutButton = document.createElement('button');
     moveOutButton.textContent = "Moved Out"
@@ -161,7 +161,7 @@ class Community {
     moveOutButton.addEventListener('click', async () =>{ 
            
         if (input.value > 0) {
-             console.log(input.value, typeof input.value)    
+             //console.log(input.value, typeof input.value)    
              city.movedOut(parseInt(input.value)); 
              let data = await this.postData(url + 'update', {key:city.key, city:city});           
              identity.textContent = city.howBig();
@@ -182,7 +182,6 @@ class Community {
     trash.setAttribute('class', 'fa fa-trash-o trash');  
 
     trash.addEventListener('click', async (e) =>{ 
-
            
            let data = await this.postData(url + 'delete', {key:city.key}); 
            this.delete(city.key);
@@ -191,8 +190,6 @@ class Community {
             let total = document.getElementById("totPop");
             total.textContent = this.cities.reduce((accum, cities) => accum + cities.population, 0);
      })
-    
-    
 
 
 
@@ -211,21 +208,13 @@ class Community {
     bodyDiv.appendChild(trash);
 
     cardDiv.appendChild(bodyDiv);
-     console.log(this.cities)
+    //console.log(this.cities)
   
 
     return cardDiv;    
 }
 
-// async getCitiesFromServer () {
-//     let data = await community.postData(url + 'all')
-    
-//     data.forEach(city => {
-//         createCard(city);
-//     });
 
-//     return cards;
-// }
 
 
 
