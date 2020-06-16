@@ -49,5 +49,6 @@ function stats () {
             jumbo.appendChild(controller.createCard(controller.cities[controller.cities.length - 1]));         
         }) 
     }
-        
+    
+    stats();
 }); 
