@@ -3,6 +3,7 @@ import functions from './citycommunity.js'
 const url = 'http://localhost:5000/';
 
 const controller = new functions.Community();
+const jumbo = document.getElementById("jumbotron");
 
 addCityButton.addEventListener('click', async () => {
     controller.createCity(
@@ -12,15 +13,13 @@ addCityButton.addEventListener('click', async () => {
         parseInt(document.getElementById('pop').value),
         
         );
-    const jumbo = document.getElementById("jumbotron");
+
     jumbo.appendChild(controller.createCard(controller.cities[controller.cities.length - 1]));
-    console.log (controller.cities);
+    
     let data = await controller.postData(url + 'add', controller.cities[controller.cities.length - 1])
-stats();
-
-
-}
-);
+    
+    stats();
+});
 
 moveInButton.addEventListener('click', async () =>{ 
            
@@ -52,18 +51,22 @@ function stats () {
         southern.textContent = controller.getMostSouthern();
 
         let total = document.getElementById("totPop");
-        total.textContent = parseInt(controller.getPopulation());
-        
+        total.textContent = parseInt(controller.getPopulation());       
 
     }
 
 
 }
 
-/* document.addEventListener('DOMContentLoaded', (event) => {
-
-    const cityCards = functions.getCitiesFromServer();
-    jumbo.appendChild(cityCards);
-    console.log('DOM fully loaded and parsed');
-
-}); */
+ document.addEventListener('DOMContentLoaded', async (event) => {
+    let data = await controller.postData(url + 'all', controller.cities[controller.cities.length - 1])  
+           
+    if (data.length>0) {
+        data.forEach(city => {
+            controller.createCity(city.name,city.lat,city.long,city.population);   
+            jumbo.appendChild(controller.createCard(controller.cities[controller.cities.length - 1]));         
+        }) 
+    }
+    
+    stats();
+}); 
