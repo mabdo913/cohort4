@@ -134,7 +134,7 @@ class Community {
     moveInButton.setAttribute('id', 'movedIn');
 
 
-    moveInButton.addEventListener('click', async () =>{ 
+    /* moveInButton.addEventListener('click', async () =>{ 
            
        if (input.value > 0) {
             console.log(input.value, typeof input.value)    
@@ -150,7 +150,7 @@ class Community {
            alert ("Need a value");
        }
   
-    })
+    }) */
 
     const moveOutButton = document.createElement('button');
     moveOutButton.textContent = "Moved Out"

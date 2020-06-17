@@ -22,6 +22,24 @@ stats();
 }
 );
 
+moveInButton.addEventListener('click', async () =>{ 
+           
+    if (input.value > 0) {
+         console.log(input.value, typeof input.value)    
+         city.movedIn(parseInt(input.value));  
+         let data = await this.postData(url + 'update', {key:city.key, city:city});
+         identity.textContent = city.howBig();
+         population.textContent = "Population: " + city.population;
+         input.value = "";     
+
+         let total = document.getElementById("totPop");
+         total.textContent = this.cities.reduce((accum, cities) => accum + cities.population, 0);
+    } else {
+        alert ("Need a value");
+    }
+
+ })
+
 
 function stats () {
 
