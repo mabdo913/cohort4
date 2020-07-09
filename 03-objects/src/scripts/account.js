@@ -55,3 +55,37 @@ export class AccountController {
     }
 
 }
+
+export const DOMFunctions = {
+
+    updateAccounts: (accounts) => { 
+        let divHTML = "";
+        accounts.accounts.forEach((account) => {
+            divHTML += `<div id=${account["id"]} class='card'>
+                            <h4>Account Name: ${account["name"]}</h4>
+                            <h4>Acc # ${account["id"]}</h4>
+                            <button>Delete</button>
+                            <button>Details</button>
+                        </div>`;
+        });
+        document.querySelector("#accounts").innerHTML = divHTML;
+    },    
+
+    updateAccountDetails: (id,accounts) => {
+        let divHTML = "";
+        const current = accounts.findAccount(id);
+        
+        divHTML = `<div id=${current["id"]} class='card'>
+                            <h2>Account Name: ${current["name"]}</h4>
+                            <h2 id="${current["id"]}">Account Number: ${current["id"]}</h4>
+                            <h2>Balance: $${current["balance"]}</h4>                        
+                            <input id="inputAmount" type="text" placeholder="Enter amount" required>
+                            <button>Withdraw</button>                        
+                            <button>Deposit</button><br><br>
+                            <label id ="label">                        
+                    </div>`;
+
+        document.querySelector("#account-details").innerHTML = divHTML;
+    }
+
+}
