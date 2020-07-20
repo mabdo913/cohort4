@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import MyHeader from './components/MyHeader';
-import Tictactoe from './tictactoe/Tictactoe';
-import BankApp from './bankapp/BankApp.js';
-import Cities from './cities/Cities.js';
+import MyHeader from './components/MyHeader.js';
+import Tictactoe from './components/tictactoe/Tictactoe.js';
+import BankApp from './components/bankapp/BankApp.js';
+import Cities from './components/cities/Cities.js';
 
 class App extends Component {
   constructor() {
