@@ -1,5 +1,5 @@
 import React from "react";
-import functions from "../src/account.js";
+import functions from "../../account-pojo.js";
 
 const AccountStats = props => {
   return (

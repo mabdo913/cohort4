@@ -1,5 +1,5 @@
 import React from "react";
-import functions from "../account-pojo.js";
+import functions from "../../account-pojo.js";
 import AddAccount from "./AddAccount.js";
 
 import AccountList from "./AccountList";
