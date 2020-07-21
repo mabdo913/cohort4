@@ -1,0 +1,8 @@
+.acc-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.account-card {
+  width: 25%;
+}

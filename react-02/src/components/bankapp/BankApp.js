@@ -1,7 +1,7 @@
 import React from "react";
 import functions from "../../account-pojo.js";
 import AddAccount from "./AddAccount.js";
-
+import '../../bank.css';
 import AccountList from "./AccountList";
 import AccountStats from "./AccountStats";
 
@@ -61,7 +61,7 @@ class BankApp extends React.Component {
             <AccountStats {...this.state} />
           </div>
         </article>
-        <div className="fl w-100 pa2">
+        <div>
           <AccountList
             {...this.state}
             depositHandler={this.handleDeposit}
