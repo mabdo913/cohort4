@@ -5,6 +5,10 @@ const AccountStats = props => {
   return (
     <div>
       <p>
+        <label>Number of accounts: </label>
+        <span>{props.accounts.length}</span>
+      </p>
+      <p>
         <label>Total Amount: </label>
         <span>${functions.sumAccounts(props.accounts)}</span>
       </p>

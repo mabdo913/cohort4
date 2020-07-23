@@ -29,7 +29,6 @@ class App extends Component {
     }
     return (
       <div className="App">
-
         <MyHeader handleClick={this.handleClick} />
         <h1>{this.state.currentApp}</h1>
         <div className="App-body">

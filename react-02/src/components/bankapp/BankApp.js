@@ -52,11 +52,11 @@ class BankApp extends React.Component {
     return (
       <div>
         <article className="cf">
-          <div className="fl w-50 bg-near-white tc">
+          <div className="fl w-50 tc">
             <h2>New Account</h2>
             <AddAccount addAccount={this.addAccount} {...this.state} />
           </div>
-          <div className="fl w-50 bg-light-gray tc">
+          <div className="fl w-50 tc">
             <h2>Summary of Account(s)</h2>
             <AccountStats {...this.state} />
           </div>
