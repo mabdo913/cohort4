@@ -5,7 +5,7 @@ class Node {
         this.amount = amount
         this.forwardNode = null
     }
-
+    
     show() {
         return "Subject: " + this.subject + " Amount: " + this.amount
     }
