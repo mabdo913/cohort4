@@ -1,14 +1,16 @@
 <<<<<<< HEAD
 import React from 'react'
-import CurrentNode from './CurrentNode.js'
+import CurrentNodeHeader from './CurrentNodeHeader.js'
 import ButtonGroup from './ButtonGroup.js'
+import LinkedListCard from './LinkedListCard.js'
 
 export default function LinkedListApp() {
 
     return (
         <div>
-            <CurrentNode />
+            <CurrentNodeHeader />
             <ButtonGroup />
+            <LinkedListCard />
         </div>
     )
 }

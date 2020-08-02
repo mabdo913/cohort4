@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-export default function CurrentNode() {
+export default function CurrentNodeHeader() {
 
     return (
         <div>
