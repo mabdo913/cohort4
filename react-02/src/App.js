@@ -4,6 +4,7 @@ import MyHeader from './components/MyHeader.js';
 import Tictactoe from './components/tictactoe/Tictactoe.js';
 import BankApp from './components/bankapp/BankApp.js';
 import Cities from './components/cities/Cities.js';
+import LinkedListApp from './components/linked-list/LinkedListApp.js';
 
 class App extends Component {
   constructor() {
@@ -26,6 +27,9 @@ class App extends Component {
     }
     else if (this.state.currentApp === "Cities and Communities") {
       displayApp=<Cities />
+    }
+    else if (this.state.currentApp === "Linked List") {
+      displayApp=<LinkedListApp />
     }
     return (
       <div className="App">

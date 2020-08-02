@@ -53,11 +53,11 @@ class BankApp extends React.Component {
       <div>
         <article className="cf">
           <div className="fl w-50 tc">
-            <h2>New Account</h2>
+            <h3>New Account</h3>
             <AddAccount addAccount={this.addAccount} {...this.state} />
           </div>
           <div className="fl w-50 tc">
-            <h2>Summary of Account(s)</h2>
+            <h3>Summary of Account(s)</h3>
             <AccountStats {...this.state} />
           </div>
         </article>

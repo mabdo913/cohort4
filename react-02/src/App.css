@@ -16,7 +16,7 @@
   }
   }
 
-/* .App-body {
+/*  .App-body {
   background-color: aliceblue;
   min-height: 400px;
   display: flex;
@@ -25,7 +25,14 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
-} */
+}  */
+
+.container {
+  display: flex;
+}
+.container.space-around {
+  justify-content: space-around;
+}
 
 .App-link {
   color: #61dafb;
