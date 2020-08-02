@@ -1,30 +1,25 @@
-<<<<<<< HEAD
 import React from 'react'
-import CurrentNodeHeader from './CurrentNodeHeader.js'
+import { useState } from 'react'
 import ButtonGroup from './ButtonGroup.js'
 import LinkedListCard from './LinkedListCard.js'
+import AddNode from './AddNode.js'
+import { Node, LinkedList } from './linked-list.js'
+
+
 
 export default function LinkedListApp() {
 
+    const linkedList = new LinkedList();
+    const [list, setList] = useState(null);
+
+    
     return (
         <div>
-            <CurrentNodeHeader />
-            <ButtonGroup />
+          <button className="l">New Node</button>
+          <AddNode />
+           <h3>Current Node</h3>                  
             <LinkedListCard />
+            <ButtonGroup />
         </div>
     )
 }
-=======
-import React from 'react';
-
-
-const LinkedListApp = (props) => {
-  return (
-    <div>
-      <h1>Hello from Linkd List</h1>
-    </div>
-  );
-};
-
-export default LinkedListApp;
->>>>>>> d65d08eef53131418a2dab84aa6bc36f41292fcc

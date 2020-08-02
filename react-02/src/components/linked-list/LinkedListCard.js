@@ -1,12 +1,15 @@
 import React from 'react';
 
 
-const LinkedListCard = (props) => {
+export default function LinkedListCard () {
+
   return (
-    <div>
-      <h1>Hello from Linkd List Card</h1>
+    <div className="center ba w-40">
+        <p>ID: </p>
+        <p>First Node: </p>
+        <p>Next Node: </p>
+        <p>Last Node: </p>
     </div>
   );
 };
 
-export default LinkedListCard;
